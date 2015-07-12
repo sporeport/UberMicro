@@ -5,20 +5,21 @@
 [heroku]: http://flux-capacitr.herokuapp.com
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+UberMicro is a clone of GoodReads, where instead of books, users will find their next favorite video game. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Users can browse games
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] favorite games
+- [ ] mark games as 'played'
+– [ ] marks games as 'want to play'
+- [ ] rate games
+- [ ] see average game rating
+- [ ] Users have a home page
+- [ ] Users get a feed of recommended games
+- [ ] Search for games by title
+- [ ] Search for games by genre
 
 ## Design Docs
 * [View Wireframes][views]
@@ -88,4 +89,3 @@ collections, but they will fetch from the new `search` routes.
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-
