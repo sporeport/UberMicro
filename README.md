@@ -2,13 +2,13 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: http://ubermicro.herokuapp.com
 
 ## Minimum Viable Product
 UberMicro is a clone of GoodReads, where instead of books, users will find their next favorite video game. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-- [ ] Users can browse games
+
 - [ ] Create accounts
 - [ ] Create sessions (log in)
 - [ ] favorite games
@@ -16,8 +16,9 @@ UberMicro is a clone of GoodReads, where instead of books, users will find their
 - [ ] marks games as 'want to play'
 - [ ] rate games
 - [ ] see average game rating
-- [ ] Users have a home page
-- [ ] Users get a feed of recommended games
+- [ ] User's home shows feed of recommended games
+- [ ] Signed in Users can see 'myGames'
+- [ ] 'myGames' has all 'played' and 'want to play' games
 - [ ] Search for games by title
 - [ ] Search for games by genre
 
