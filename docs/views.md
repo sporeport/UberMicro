@@ -1,26 +1,22 @@
 # View Wireframes
 
 ## New Session
-![new-session]
+![session_new]
 
 ## Feed Show (landing page)
-![feed-show]
+![feed_show]
 
-## Blog Show
-![blog-show]
+## My Games
+![my_games_show]
 
-## Post Show
-![post-show]
+## Game Show
+![game_show]
 
-## Post Form
-![post-form]
+## Search Results (game_index)
+![games_index]
 
-## Search Results
-![search-results]
-
-[new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[session_new]: ./wireframes/session_new.png
+[feed_show]: ./wireframes/feed_show.png
+[my_games_show]: ./wireframes/my_games_show.png
+[game_show]: ./wireframes/game_show.png
+[games_index]: ./wireframes/games_index.png

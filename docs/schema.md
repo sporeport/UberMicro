@@ -14,6 +14,7 @@ column name     | data type | details
 id              | integer   | not null, primary key
 title           | string    | not null
 company         | string    | not null
+genre           | string    | not null
 avg_rating      | integer   |
 description     | text      | not null
 
@@ -23,9 +24,10 @@ column name     | data type | details
 id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key (references users)
 game_id         | integer   | not null, foreign key (references posts)
-<!-- unique index combining user_id and game_id -->
 my_rating       | integer   |
 status          | string    |
+
+<!-- unique index combining user_id and game_id -->
 
 
 
