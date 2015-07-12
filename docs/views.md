@@ -15,8 +15,8 @@
 ## Search Results (game_index)
 ![games-index]
 
-[session-new]: ./wireframes/session_new.png
-[feed-show]: ./wireframes/feed_show.png
-[my-games-show]: ./wireframes/my_games_show.png
-[game-show]: ./wireframes/game_show.png
-[games-index]: ./wireframes/games_index.png
+[session-new]: ./wireframes/session_new.JPG
+[feed-show]: ./wireframes/feed_show.JPG
+[my-games-show]: ./wireframes/my_games_show.JPG
+[game-show]: ./wireframes/game_show.JPG
+[games-index]: ./wireframes/games_index.JPG
