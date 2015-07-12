@@ -13,7 +13,7 @@ UberMicro is a clone of GoodReads, where instead of books, users will find their
 - [ ] Create sessions (log in)
 - [ ] favorite games
 - [ ] mark games as 'played'
-– [ ] marks games as 'want to play'
+- [ ] marks games as 'want to play'
 - [ ] rate games
 - [ ] see average game rating
 - [ ] Users have a home page
