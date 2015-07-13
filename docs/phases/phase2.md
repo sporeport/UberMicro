@@ -1,29 +1,26 @@
-# Phase 2: Viewing Blogs and Posts
+# Phase 2: Viewing Games and Comments
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+API::GamesController (show)
+API::MyGamesController (create, destroy, update)
+API::CommentsController (create)
 
 ### Views
-* blogs/show.json.jbuilder
+* games/show.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+* MyGames
+* Game
 
 ### Collections
-* Blogs
-* Posts
+* MyGames
+* Games
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* GamesShow
 
 ## Gems/Libraries

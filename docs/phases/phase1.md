@@ -1,22 +1,22 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 1: User Authentication, Games
 
 ## Rails
 ### Models
 * User
-* Blog
-* Post
+* Game
+* MyGame
 
 ### Controllers
-* UsersController (create, new)
+* UserController (create, new)
 * SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+* GameController (show, index, new, create)
+* MyGameController (create)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* games/show.html.erb
+* games/index.html.erb
 
 ## Backbone
 ### Models

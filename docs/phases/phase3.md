@@ -1,21 +1,20 @@
-# Phase 3: Editing and Displaying Posts
+# Phase 3: Adding comments
 
 ## Rails
 ### Models
 
 ### Controllers
-
 ### Views
 
 ## Backbone
 ### Models
+* Comment
 
 ### Collections
+* Comments
 
 ### Views
-* PostForm
+* CommentsForm
+* CommentsShow
 
 ## Gems/Libraries
-* Filepicker
-* Markdown-js
-* Bootstrap Markdown

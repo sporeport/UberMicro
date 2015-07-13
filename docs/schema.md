@@ -23,9 +23,17 @@ column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
 user_id         | integer   | not null, foreign key (references users)
-game_id         | integer   | not null, foreign key (references posts)
+game_id         | integer   | not null, foreign key (references games)
 my_rating       | integer   |
 status          | string    |
+
+## comments
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+game_id         | integer   | not null, foreign key (references games)
+author_id       | integer   | not null, foreign key (references users)
+body            | text      | not null
 
 <!-- unique index combining user_id and game_id -->
 
