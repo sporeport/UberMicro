@@ -31,59 +31,40 @@ UberMicro is a clone of GoodReads, where instead of books, users will find their
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: User Authentication and rails setup (~1 day)
+First thing will be to add user authentication along with the basic database schema that the rest of the app will depend on. This will involve creating a games, users, and comments table, along with a my_games table which will hold the relationship data between a user and a game. This join table along with the relationship will also house the users rating for the game and the status of the game for the user (either null, "wants-to-play" or "played").
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: building API (~2 days)
+This Phase will involve building the jbuilder files along with setting the api up for backbone. Once this is done I will create a backbone model for games and another nested model my_games. I will then create the games show page which will allow the user to change their relationship to games with background ajax requests.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Adding comments and adding additional information (~1-2 days)
+In this phase I will add the ability to comment on games on the show page for games. In this phase I will also use the giantbomb api to supplement the information I am already gathering from my database. This way I will be able to gather images with out storing them in the data base, along with an myriad of other information the api may hold.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Recommended (~1-2 days)
+This phase will consist of creating a page of recommended games. At first this page will only utilize the genre's of other games the user has liked to recommend games that are of the same genre. As a bonus later I will try to create a better algorithm + using more api information to recommend games.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: MyGames (~2 days)
+In this phase I will add a user's myGames page which will house all games the user has wanted to play or has played. From this page the user will be able to change the status of games, remove games, rate their games, and even see the average rating of a game.
 
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
+- [ ] better recommend algorithm
 - [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
+- [ ] add friends
+- [ ] add friend recommenations
+- [ ] "Like" button to comments
+- [ ] comment on users
 - [ ] User avatars
-- [ ] Typeahead search bar
+- [ ] Multiple sessions/session management
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

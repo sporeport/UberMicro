@@ -4,8 +4,6 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
 
 ### Views
 
@@ -15,8 +13,7 @@ Api::PostsController (search)
 ### Collections
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+MyGamesView (composite view)
+MyGamesShow (subviews)
 
 ## Gems/Libraries
-

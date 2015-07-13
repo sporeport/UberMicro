@@ -1,4 +1,4 @@
-# Phase 4: Games Search
+# Phase 4: Recommended Games
 
 ## Rails
 ### Models
@@ -13,5 +13,7 @@
 ### Collections
 
 ### Views
+FeedView (composite view)
+GamesFeedShow (subviews)
 
 ## Gems/Libraries
