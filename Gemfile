@@ -16,6 +16,7 @@ gem 'newrelic_rpm'
 gem 'bcrypt', require: 'bcrypt'
 gem 'backbone-on-rails'
 
+gem 'ejs'
 gem 'annotate'
 gem 'faker'
 # Use Unicorn as the app server

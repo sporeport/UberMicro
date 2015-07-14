@@ -1,0 +1,14 @@
+
+<ul>
+  <% games.forEach(function (game) { %>
+    <li>
+      <ul>
+        <li>title: <%= game.escape("title") %></li>
+        <li>company: <%= game.escape("company") %></li>
+        <li>description: <%= game.escape("description") %></li>
+        <li>created at: <%= game.escape("created_at") %></li>
+        <li>updated at: <%= game.escape("updated_at") %></li>
+      </ul>
+    </li>
+  <% }) %>
+</ul>

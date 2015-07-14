@@ -4,7 +4,9 @@ window.UberMicro = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+    var $rootEl = $("#content")
+    var router = new UberMicro.Routers.Router({ $rootEl: $rootEl });
+    Backbone.history.start();
   }
 };
 
