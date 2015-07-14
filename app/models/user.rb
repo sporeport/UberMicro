@@ -1,7 +1,21 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string           not null
+#  email           :string           not null
+#  session_token   :string           not null
+#  password_digest :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ActiveRecord::Base
   validates :name, :password_digest, :email, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
+  has_many :games
 
   def self.generate_token
     SecureRandom.urlsafe_base64

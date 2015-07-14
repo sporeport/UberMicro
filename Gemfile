@@ -15,22 +15,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'newrelic_rpm'
 gem 'bcrypt', require: 'bcrypt'
 
+gem 'annotate'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :test do
+group :test, :development do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
+group :test do
+end
 
 group :development do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
