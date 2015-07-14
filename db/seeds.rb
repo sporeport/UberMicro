@@ -1,3 +1,4 @@
+u1 = User.create(name: "sam", email: "sam", password: "samsam")
 
 10.times do |x|
   title = Faker::Name.first_name
@@ -11,3 +12,12 @@
               avg_rating: avg_rating,
               description: description)
 end
+
+
+mg1 = MyGame.create(user_id: u1.id,
+                    game_id: Game.first.id,
+                    status: "wants-to-play")
+
+mg2 = MyGame.create(user_id: u1.id,
+                    game_id: Game.last.id,
+                    status: "wants-to-play")
