@@ -1,7 +1,7 @@
-class API::GamesController < ApplicationController
+class Api::GamesController < ApplicationController
 
   def index
-    @games = Games.all
+    @games = Game.all
     render :index
   end
 

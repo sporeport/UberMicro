@@ -17,7 +17,9 @@ class Game < ActiveRecord::Base
 
   after_initialize :ensure_rating
 
-  has_many :users
+  has_many :my_games
+
+  has_many :users, through: :my_games, source: :user
 
   private
 

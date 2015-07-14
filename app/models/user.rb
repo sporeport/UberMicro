@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
   validates :name, :password_digest, :email, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
 
-  has_many :games
+  has_many :my_games
+  has_many :games, through: :my_games, source: :game
 
   def self.generate_token
     SecureRandom.urlsafe_base64
