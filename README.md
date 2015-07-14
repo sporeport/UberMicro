@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://ubermicro.herokuapp.com
+[heroku]: http://ubermicro.herokuapp.com/
 
 ## Minimum Viable Product
 UberMicro is a clone of GoodReads, where instead of books, users will find their next favorite video game. Users can:

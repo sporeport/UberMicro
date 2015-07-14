@@ -1,17 +1,26 @@
-<h1>UberMicro</h1>
 
-<% if signed_in? %>
-  <strong>Hi <%= user.name %></strong>
-  <%= button_to_sign_out %>
-<% else %>
-<% user = User.new %>
+<nav id="main-nav" class="group">
+  <h1 class=logo>UberMicro</h1>
 
-<form action="<%= session_url %>" method="post">
-  <%= auth_token %>
+  <% if signed_in? %>
+    <strong class='nav-links user-link'>Hi, <%= user.name %></strong>
+    <%= button_to_sign_out %>
+  <% else %>
+  <% user = User.new %>
 
-  <input type="text" name="user[email]" value="<%= user.email %>" placeholder="email">
-  <input type="password" name="user[password]" placeholder="password">
+  <form action="<%= session_url %>" method="post">
+    <%= auth_token %>
 
-  <button>Sign In</button>
-</form>
-<% end %>
+    <span class="sign-in-form">
+      <input type="text" name="user[email]" value="<%= user.email %>" placeholder="email">
+      <input type="password" name="user[password]" placeholder="password">
+      <button>Sign In</button>
+    </span>
+
+  </form>
+
+  <% end %>
+
+  <a class="nav-links home-link" href="">Home</strong></a>
+  <a class="nav-links my-games-link" href="#/my_games">myGames</strong></a>
+</nav>

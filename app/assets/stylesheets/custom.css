@@ -1,0 +1,99 @@
+/* reset */
+
+h1, h2, h3, h4, h5,
+body, html, nav, div,
+span, figure, section,
+strong, button, li, ul,
+p, a {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+
+  box-sizing: inherit;
+  font: inherit;
+  text-decoration: inherit;
+  text-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+/* utils */
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* basic styles */
+
+h1 {
+  font-size: 36px
+}
+
+h2 {
+  font-size: 24px
+}
+
+h3 {
+  font-size: 18px
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* nav */
+
+#main-nav {
+  background: #c9ecf8;
+}
+
+#main-nav a:hover {
+  font-weight: 700;
+}
+
+#main-nav .logo {
+  float: left;
+  padding: 16px 20px;
+}
+
+#main-nav .nav-links {
+  float: right;
+  margin: 25px 20px;
+}
+
+#main-nav .sign-in-form {
+  float: right;
+  margin: 19px
+}
+
+#main-nav .sign-out-button {
+  float: right;
+  margin: 25px 20px;
+}
+
+#main-nav .sign-out-button:hover {
+  font-weight: 700;
+}
+
+#main-nav .sign-in-form button {
+  border: 1px solid #000;
+  background: #d3ffe1;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#main-nav .sign-in-form input {
+  height: 20px;
+}

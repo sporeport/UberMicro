@@ -10,7 +10,7 @@ module ApplicationHelper
     html = "<form action=\"#{session_url}\" method=\"post\">
             <input type='hidden' name='_method' value='delete'>
             #{auth_token}
-            <button>sign out</button>
+            <button class=\"sign-out-button\">sign out</button>
             </form>"
 
     html.html_safe
