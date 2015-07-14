@@ -1,0 +1,22 @@
+<h1>UberMicro</h1>
+
+<% if signed_in? %>
+  <strong>Hi <%= user.name %></strong>
+  <%= button_to_sign_out %>
+<% else %>
+<% user = User.new %>
+
+<form action="<%= session_url %>" method="post">
+  <%= auth_token %>
+
+  <label>email
+    <input type="text" name="user[email]" value="<%= user.email %>">
+  </label>
+
+  <label>password
+    <input type="password" name="user[password]">
+  </label>
+
+  <button>Sign In</button>
+</form>
+<% end %>

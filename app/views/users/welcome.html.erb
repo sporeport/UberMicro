@@ -1,20 +1,6 @@
-<h1>Welcome To UberMicro</h1>
-
-<h3>Sign In</h3>
-
-<form action="<%= sessions_url %>" method="post">
-  <label>email
-    <input type="text" name="user[email]" value="<%= @user.email %>">
-  </label>
-
-  <label>password
-    <input type="password" name="user[password]">
-  </label>
-</form>
-
-
-<h3>Sign Up</h3>
+<h3>Create an Account</h3>
 <form action="<%= users_url %>" method="post">
+  <%= auth_token %>
   <label>name
     <input type="text" name="user[name]" value="<%= @user.name %>">
   </label>
@@ -26,4 +12,6 @@
   <label>password
     <input type="password" name="user[password]">
   </label>
+
+  <button>Sign Up</button>
 </form>
