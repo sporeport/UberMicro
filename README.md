@@ -65,6 +65,7 @@ In this phase I will add a user's myGames page which will house all games the us
 - [ ] comment on users
 - [ ] User avatars
 - [ ] Multiple sessions/session management
+- [ ] Add explore
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
