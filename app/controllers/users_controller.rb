@@ -12,9 +12,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def welcome
-    @user = User.new
-    render :welcome
+  def home
+    if signed_in?
+      render :user_home
+    else
+      @user = User.new
+      render :guest_home
+    end
   end
 
   private
