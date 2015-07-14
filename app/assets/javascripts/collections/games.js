@@ -1,3 +1,4 @@
 UberMicro.Collections.Games = Backbone.Collection.extend({
-  url: "/api/games"
+  url: "/api/games",
+  model: UberMicro.Models.Game
 })
