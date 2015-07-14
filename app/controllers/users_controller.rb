@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def welcome
+    @user = User.new
     render :welcome
   end
 end
