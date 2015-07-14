@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
-//= require sample_project_proposal_master
+//= require uber_micro
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

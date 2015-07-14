@@ -1,13 +1,13 @@
-window.SampleProjectProposalMaster = {
+window.UberMicro = {
   Models: {},
   Collections: {},
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    
   }
 };
 
 $(document).ready(function(){
-  SampleProjectProposalMaster.initialize();
+  UberMicro.initialize();
 });
