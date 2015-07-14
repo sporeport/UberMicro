@@ -16,6 +16,7 @@ gem 'newrelic_rpm'
 gem 'bcrypt', require: 'bcrypt'
 gem 'backbone-on-rails'
 
+
 gem 'ejs'
 gem 'annotate'
 gem 'faker'
@@ -27,7 +28,6 @@ gem 'faker'
 
 group :test, :development do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
@@ -38,4 +38,8 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
