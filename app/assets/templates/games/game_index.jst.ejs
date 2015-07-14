@@ -2,8 +2,10 @@
 <ul>
   <% games.forEach(function (game) { %>
     <li>
+      <button class="want-button" data-id="<%= game.id %>">Want to Play</button>
       <ul>
         <li>title: <%= game.escape("title") %></li>
+        <li>genere: <%= game.escape("genre") %></li>
         <li>company: <%= game.escape("company") %></li>
         <li>description: <%= game.escape("description") %></li>
         <li>created at: <%= game.escape("created_at") %></li>

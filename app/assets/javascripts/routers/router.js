@@ -10,6 +10,7 @@ UberMicro.Routers.Router = Backbone.Router.extend({
 
   index: function () {
     var games = new UberMicro.Collections.Games;
+    games.fetch();
     var indexView = new UberMicro.Views.GamesIndex({ collection: games });
     this._swapView(indexView);
   },
