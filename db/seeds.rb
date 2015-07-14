@@ -1,7 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+10.times do |x|
+  title = Faker::Name.first_name
+  company = Faker::Company.name
+  genre = Faker::Lorem.word
+  avg_rating = (x % 5)
+  description = Faker::Lorem.paragraph
+  Game.create(title: title,
+              company: company,
+              genre: genre,
+              avg_rating: avg_rating,
+              description: description)
+end

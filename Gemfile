@@ -16,6 +16,7 @@ gem 'newrelic_rpm'
 gem 'bcrypt', require: 'bcrypt'
 
 gem 'annotate'
+gem 'faker'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
