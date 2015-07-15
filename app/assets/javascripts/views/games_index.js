@@ -1,4 +1,4 @@
-UberMicro.Views.GamesIndex = Backbone.View.CompositeView.extend({
+UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
