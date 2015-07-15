@@ -9,7 +9,7 @@ UberMicro.Collections.Games = Backbone.Collection.extend({
     if (game) {
       game.fetch();
     } else {
-      game = new UberMicro.Model.Game({ id: id });
+      game = new UberMicro.Models.Game({ id: id });
       game.fetch({
         success: function () {
           this.add(game)

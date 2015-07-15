@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       sign_in(@user)
       redirect_to root_path
     else
-      flash[:errors] = @user.errors.full_messages
       redirect_to root_path
     end
   end

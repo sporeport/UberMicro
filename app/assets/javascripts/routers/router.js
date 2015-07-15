@@ -23,7 +23,7 @@ UberMicro.Routers.Router = Backbone.Router.extend({
 
   gamesShow: function (id) {
     var game = this.games.getOrFetch(id);
-    var gameShowView = new UberMicro.Views.GameShow({ model: game });
+    var gameShowView = new UberMicro.Views.GameShow({ model: game, showComments: true });
     this._swapView(gameShowView);
   },
 

@@ -1,10 +1,11 @@
 UberMicro.Views.GameShow = Backbone.View.extend({
   template: JST["games/game_show"],
 
-  tagName: "figure",
+  initialize: function (options) {
+    this.listenTo(this.model, "sync", this.render)
+    this.showComments = options.showComments || false
+  },
 
-  className: "game-instance",
-  
   events: {
     "click button.want-button": "toggleWTPGame",
   },
@@ -36,7 +37,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ game: this.model }))
+    this.$el.html(this.template({ game: this.model, showComments: this.showComments }))
     return this;
   }
 })
