@@ -6,32 +6,20 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
 
   template: JST["games/games_index"],
 
-  events: {
-    "click button.want-button": "toggleWTPGame",
-  },
-
-  toggleWTPGame: function (event) {
-    var gameId = $(event.currentTarget).data("id")
-    var game = this.collection.getOrFetch(gameId)
-    var myGame = game.myGame
-
-    if (game.myGame){
-      myGame.destroy();
-      $(event.currentTarget).text("unwant to play");
-    } else {
-      myGame = new UberMicro.Models.MyGame({
-        "game_id": gameId,
-        "status": "wants-to-play"
+  addSubViews: function () {
+    this.collection.forEach(function (model) {
+      var showView = new UberMicro.Views.GameShow({
+        model: model,
+        collection: this.collection
       });
 
-      $(event.currentTarget).text("unwant to play");
-      myGame.save();
-    }
-
+      this.addSubview(".games-list", showView);
+    }.bind(this))
   },
 
   render: function () {
-    this.$el.html(this.template({ games: this.collection }));
+    this.$el.html(this.template());
+    this.addSubViews();
     return this;
   }
 })

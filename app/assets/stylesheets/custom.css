@@ -4,7 +4,7 @@ h1, h2, h3, h4, h5,
 body, html, nav, div,
 span, figure, section,
 strong, button, li, ul,
-p, a {
+p, a, input {
   padding: 0;
   margin: 0;
   border: 0;
@@ -31,6 +31,12 @@ ul {
 }
 
 /* basic styles */
+
+input {
+  background: white;
+  border: 1px solid #ccc;
+  width: 150px;
+}
 
 h1 {
   font-size: 36px
@@ -63,8 +69,27 @@ button {
   background: #c9ecf8;
 }
 
-#main-nav a:hover {
-  font-weight: 700;
+#main-nav .search-box-container {
+  float: left;
+  margin: 25px 20px;
+}
+
+.search-field {
+  border-right: 0;
+  margin-right: 0;
+  float: left;
+}
+
+.search-box-button {
+  background: white;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+}
+
+.search-box-button:hover {
+  background: #0072bb;
 }
 
 #main-nav .logo {
@@ -85,10 +110,6 @@ button {
 #main-nav .sign-out-button {
   float: right;
   margin: 25px 20px;
-}
-
-#main-nav .sign-out-button:hover {
-  font-weight: 700;
 }
 
 #main-nav .sign-in-form button {

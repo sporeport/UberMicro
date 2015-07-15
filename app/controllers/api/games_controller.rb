@@ -1,7 +1,15 @@
 class Api::GamesController < ApplicationController
 
   def index
-    @games = Game.all
+    @query = params[:query]
+
+    if !@query.blank?
+      @games = Game.all.where("title = ? OR genre = ? OR company = ?",
+                              @query, @query, @query)
+    else
+      @games = Game.all
+    end
+
     render :index
   end
 
