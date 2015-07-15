@@ -4,7 +4,7 @@ class Api::GamesController < ApplicationController
     @query = params[:query]
 
     if !@query.blank?
-      @games = Game.all.where("title = ? OR genre = ? OR company = ?",
+      @games = Game.where("title = ? OR genre = ? OR company = ?",
                               @query, @query, @query)
     else
       @games = Game.all

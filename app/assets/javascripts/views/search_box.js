@@ -12,6 +12,7 @@ UberMicro.Views.SearchBox = Backbone.View.extend({
   },
 
   search: function () {
-    Backbone.history.navigate("#/games", { trigger: true })
+    var query = this.$(".search-field").val()
+    Backbone.history.navigate("#/games/search/" + query, { trigger: true })
   }
 })

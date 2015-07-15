@@ -1,6 +1,8 @@
 UberMicro.Views.GameShow = Backbone.View.extend({
   template: JST["games/game_show"],
 
+  tagName: "figure",
+
   events: {
     "click button.want-button": "toggleWTPGame",
   },
