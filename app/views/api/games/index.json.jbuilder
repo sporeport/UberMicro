@@ -1,12 +1,8 @@
-
-
 json.array! @games do |game|
 
   json.extract! game, :id, :title, :company, :genre, :avg_rating, :description
-  if game.user_my_games(current_user)
-    json.my_games do
-      json.array! game.user_my_games(current_user)
-    end
+  if game.user_my_game(current_user)
+    json.myGame game.user_my_game(current_user)
   end
 end
 #  title       :string           not null

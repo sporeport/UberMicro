@@ -1,24 +1,33 @@
-UberMicro.Views.GamesIndex = Backbone.View.extend({
+UberMicro.Views.GamesIndex = Backbone.View.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "sync", this.render);
   },
 
-  template: JST["games/game_index"],
+  template: JST["games/games_index"],
 
   events: {
-    "click button.want-button": "wtpGame"
+    "click button.want-button": "toggleWTPGame",
   },
 
-  wtpGame: function (event) {
-    var gameId = $(event.currentTarget).date("id")
-    var myGame = new UberMicro.Models.MyGame({
-      "game_id": game_id,
-      "status": "wants-to-play"
-    });
+  toggleWTPGame: function (event) {
+    var gameId = $(event.currentTarget).data("id")
+    var game = this.collection.getOrFetch(gameId)
+    var myGame = game.myGame
 
-    myGame.save();
-    
+    if (game.myGame){
+      myGame.destroy();
+      $(event.currentTarget).text("unwant to play");
+    } else {
+      myGame = new UberMicro.Models.MyGame({
+        "game_id": gameId,
+        "status": "wants-to-play"
+      });
+
+      $(event.currentTarget).text("unwant to play");
+      myGame.save();
+    }
+
   },
 
   render: function () {

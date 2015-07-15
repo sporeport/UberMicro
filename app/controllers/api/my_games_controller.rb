@@ -16,11 +16,17 @@ class Api::MyGamesController < ApplicationController
     @myGame = MyGame.new(my_game_params)
     @myGame.user_id = current_user.id
 
-    if !@myGame.save
-      render json: @myGame.errors.full_messages
+    if @myGame.save
+      render json: @myGame
     else
-      render json: nil
+      render json: @myGame.errors.full_messages
     end
+  end
+
+  def destroy
+    @myGame = MyGame.find(params[:id])
+    @myGame.destroy
+    render json: @myGame
   end
 
   private

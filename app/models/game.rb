@@ -21,8 +21,8 @@ class Game < ActiveRecord::Base
 
   has_many :users, through: :my_games, source: :user
 
-  def user_my_games(user)
-    self.my_games.where("user_id = ?", user.id)
+  def user_my_game(user)
+    self.my_games.where("user_id = ?", user.id).limit(1).first
   end
 
   private

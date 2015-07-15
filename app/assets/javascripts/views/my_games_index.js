@@ -4,7 +4,7 @@ UberMicro.Views.MyGamesIndex = Backbone.View.extend({
     this.listenTo(this.collection, "sync", this.render)
   },
 
-  template: JST["my_games/my_game_index"],
+  template: JST["my_games/my_games_index"],
 
   render: function () {
     this.$el.html(this.template({ myGames: this.collection }))
