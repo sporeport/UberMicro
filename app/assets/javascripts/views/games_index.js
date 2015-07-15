@@ -10,8 +10,15 @@ UberMicro.Views.GamesIndex = Backbone.View.extend({
     "click button.want-button": "wtpGame"
   },
 
-  wtpGames: {
-    // var myGame = new UberMicro.Models.MyGame();
+  wtpGame: function (event) {
+    var gameId = $(event.currentTarget).date("id")
+    var myGame = new UberMicro.Models.MyGame({
+      "game_id": game_id,
+      "status": "wants-to-play"
+    });
+
+    myGame.save();
+    
   },
 
   render: function () {

@@ -21,6 +21,10 @@ class Game < ActiveRecord::Base
 
   has_many :users, through: :my_games, source: :user
 
+  def user_my_games(user)
+    self.my_games.where("user_id = ?", user.id)
+  end
+
   private
 
   def ensure_rating
