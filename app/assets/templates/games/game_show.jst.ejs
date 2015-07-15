@@ -6,7 +6,6 @@
     want to play
     <% } %>
   </button>
-
   <ul>
     <li>
       title: <a href="#/games/<%= game.id %>"><%= game.escape("title") %></a>
@@ -17,7 +16,7 @@
   </ul>
 </figure>
 
-<% if (showComments) { %> 
+<% if (showComments) { %>
   <figure class="comments-container">
     <h2>Comments</h2>
     <ul class="game-comments-list">

@@ -5,9 +5,9 @@ class CommentsController < ApplicationController
     @comment.author_id = current_user.id
 
     if @comment.save
-      render :json @comment
+      render json: @comment
     else
-      render :json @comment.errors.full_messages
+      render json: @comment.errors.full_messages
     end
   end
 
