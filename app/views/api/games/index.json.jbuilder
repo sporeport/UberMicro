@@ -5,8 +5,3 @@ json.array! @games do |game|
     json.myGame game.user_my_game(current_user)
   end
 end
-#  title       :string           not null
-#  company     :string
-#  genre       :string           not null
-#  avg_rating  :integer          not null
-#  description :text

@@ -21,3 +21,7 @@ mg1 = MyGame.create(user_id: u1.id,
 mg2 = MyGame.create(user_id: u1.id,
                     game_id: Game.last.id,
                     status: "wants-to-play")
+
+c1 = Comment.create(author_id: u1.id, game_id: Game.first.id, body: "comment comment")
+c2 = Comment.create(author_id: u1.id, game_id: Game.first.id, body: "i am comment")
+c3 = Comment.create(author_id: u1.id, game_id: Game.first.id, body: "How DAER You")
