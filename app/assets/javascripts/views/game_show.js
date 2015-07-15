@@ -3,6 +3,8 @@ UberMicro.Views.GameShow = Backbone.View.extend({
 
   tagName: "figure",
 
+  className: "game-instance",
+  
   events: {
     "click button.want-button": "toggleWTPGame",
   },
