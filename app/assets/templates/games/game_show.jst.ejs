@@ -22,7 +22,20 @@
 
 <% if (showComments) { %>
   <figure class="comments-container">
-    <h2>Comments</h2>
+
+    <% if (UberMicro.currentUser.signed_in())  { %>
+
+    <section class="comment-input-box">
+      <h3>Comment or Review <%= game.escape("title") %></h3>
+
+      <form class="comment-form">
+        <button class="submit-comment">post</button>
+        <textarea name="comment[body]"><% newComment.escape("body") %></textarea>
+      </form>
+    </section>
+    <% } %>
+
+    <h2>Comments and Reviews</h2>
     <ul class="game-comments-list">
       <% game.comments().forEach(function (comment) { %>
         <li>
@@ -32,17 +45,7 @@
           </p>
         </li>
       <% }) %>
-
-      <% if (UberMicro.currentUser.signed_in())  { %>
-        <h3>Comment on <%= game.escape("title") %></h3>
-
-        <li class="input-box">
-          <form class="comment-form">
-            <textarea><% newComment.escape(body) %></textarea>
-          </form>
-          <button class="submit-comment">post</button>
-        </li>
-      <% } %>
     </ul>
+
   </figure>
 <% } %>
