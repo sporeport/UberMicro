@@ -16,8 +16,7 @@ UberMicro.Models.Game = Backbone.Model.extend({
     }
 
     if (response.comments) {
-      var comments = new UberMicro.Collections.Comments(response.comments);
-      this._comments = comments
+      this.comments().set(response.comments, { parse: true })
       delete response.comments
     }
 

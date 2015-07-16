@@ -2,8 +2,7 @@ json.extract! @game, :id, :title, :genre, :company, :description, :avg_rating
 
 json.comments do
   json.array! @game.comments do |comment|
-    json.extract! comment, :id, :body, :author_id, :game_id
-    json.created_at comment.created_at.to_i
+    json.extract! comment, :id, :body, :author_id, :game_id, :created_at
     json.author comment.author.name
   end
 end

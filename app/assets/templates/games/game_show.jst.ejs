@@ -1,13 +1,18 @@
 <figure class="game-instance">
 
+
+  <ul class="want-button-options-list">
+    <li>played</li>
+    <li>currently playing</li>
+    <li class="options-add-list">add list</li>
+  </ul>
+
+  <button class="want-button-options"></button>
+
   <button class="want-button"
           data-id="<%= game.id %>"
           <% if (!UberMicro.currentUser.signed_in()) { %> disabled <% } %> >
-    <% if (game.myGame && game.myGame.get("status") === "wants-to-play") { %>
-    unwant to play
-    <% } else { %>
     want to play
-    <% } %>
   </button>
 
   <ul>
@@ -25,12 +30,12 @@
 
     <% if (UberMicro.currentUser.signed_in())  { %>
 
-    <section class="comment-input-box">
+    <section class="comment-input-box group">
       <h3>Comment or Review <%= game.escape("title") %></h3>
 
       <form class="comment-form">
-        <button class="submit-comment">post</button>
         <textarea name="comment[body]"><% newComment.escape("body") %></textarea>
+        <button class="submit-comment-button">post</button>
       </form>
     </section>
     <% } %>
