@@ -263,8 +263,10 @@ button.disabled-want-button {
 }
 
 .my-game-instance > span {
+  margin-top: 5px;
   float: left;
   width: 100px;
+  border-bottom: 1px solid #ccc;
 }
 
 span.company {

@@ -1,7 +1,17 @@
 <figure class="my-game-instance">
-  <span class="title"><%= myGame.game.escape("title") %></span>
-  <span class="genre"><%= myGame.game.escape("genre") %></span>
-  <span class="company"><%= myGame.game.escape("company") %></span>
+  <span class="title">
+    <a href="#/games/<%= myGame.game.id %>"><%= myGame.game.escape("title") %></a>
+  </span>
+  <span class="genre">
+    <a href="#/games/search/<%= myGame.game.escape("genre") %>">
+      <%= myGame.game.escape("genre") %>
+    </a>
+  </span>
+  <span class="company">
+    <a href="#/games/search/<%= myGame.game.escape("company") %>">
+      <%= myGame.game.escape("company") %>
+    </a>
+  </span>
   <span class="list"><%= myGame.escape("status") %></span>
   <span class="avg-rating"><%= myGame.game.escape("avg_rating") %></span>
   <span class="my-rating"><%= myGame.escape("my_rating") %></span>
