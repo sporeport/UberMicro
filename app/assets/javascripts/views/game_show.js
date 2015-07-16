@@ -38,10 +38,16 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   render: function () {
+    var signed_in = true
+    if (jQuery.isEmptyObject(this.currentUser.attributes)) {
+      signed_in = false
+    }
+
+
     this.$el.html(this.template({
       game: this.model,
       showComments: this.showComments,
-      currentUser: this.currentUser
+      signed_in: signed_in
     }))
 
     return this;
