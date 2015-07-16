@@ -105,7 +105,12 @@ button {
 
 #main-nav .sign-in-form {
   float: right;
-  margin: 19px
+  margin: 20px
+}
+
+#main-nav .sign-in-form > input {
+  float: right;
+  margin: 5px;
 }
 
 #main-nav .sign-out-button {
@@ -116,11 +121,12 @@ button {
   padding: 5px;
 }
 
-#main-nav .sign-in-form button {
+#main-nav .sign-in-form > button {
   background: #fff;
   border-radius: 5px;
   padding: 5px;
   float: right;
+  margin: 5px;
   margin-left: 10px;
 }
 

@@ -13,6 +13,15 @@ class Api::GamesController < ApplicationController
     render :index
   end
 
+  def popular
+    @games = Game.joins('JOIN my_games ON my_games.game_id = games.id')
+                 .group('games.id')
+                 .order('COUNT(games.*)')
+                 .limit(10)
+
+    render json: @games
+  end
+
 
   def show
     @game = Game.find(params[:id])
