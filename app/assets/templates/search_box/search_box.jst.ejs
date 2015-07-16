@@ -1,2 +1,4 @@
-<input type="text" placeholder="search" class="search-field">
-<button class="search-box-button"></button>
+<% if (!jQuery.isEmptyObject(currentUser.attributes)) { %>
+  <input type="text" placeholder="search" class="search-field">
+  <button class="search-box-button"></button>
+<% } %>

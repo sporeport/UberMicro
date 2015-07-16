@@ -2,8 +2,9 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   template: JST["games/game_show"],
 
   initialize: function (options) {
-    this.listenTo(this.model, "sync", this.render)
-    this.showComments = options.showComments || false
+    this.listenTo(this.model, "sync", this.render);
+    this.currentUser = options.currentUser;
+    this.showComments = options.showComments || false;
   },
 
   events: {
@@ -37,7 +38,12 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ game: this.model, showComments: this.showComments }))
+    this.$el.html(this.template({
+      game: this.model,
+      showComments: this.showComments,
+      currentUser: this.currentUser
+    }))
+
     return this;
   }
 })

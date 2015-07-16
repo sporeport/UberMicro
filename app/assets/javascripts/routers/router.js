@@ -1,7 +1,13 @@
 UberMicro.Routers.Router = Backbone.Router.extend({
 
   initialize: function (options) {
-    var searchBoxView = new UberMicro.Views.SearchBox();
+    this.currentUser = new UberMicro.Models.CurrentUser();
+    this.currentUser.fetch();
+
+    var searchBoxView = new UberMicro.Views.SearchBox({
+      currentUser: this.currentUser
+    });
+
     $(".search-box-container").html(searchBoxView.render().$el)
 
     this.$rootEl = options.$rootEl
@@ -17,20 +23,35 @@ UberMicro.Routers.Router = Backbone.Router.extend({
 
   gamesIndex: function (query) {
     this.games.fetch({ data: { query: query }});
-    var gamesIndexView = new UberMicro.Views.GamesIndex({ collection: this.games });
+
+    var gamesIndexView = new UberMicro.Views.GamesIndex({
+      collection: this.games,
+      currentUser: this.currentUser
+    });
+
     this._swapView(gamesIndexView);
   },
 
   gamesShow: function (id) {
     var game = this.games.getOrFetch(id);
-    var gameShowView = new UberMicro.Views.GameShow({ model: game, showComments: true });
+
+    var gameShowView = new UberMicro.Views.GameShow({
+      model: game,
+      showComments: true,
+      currentUser: this.currentUser
+    });
+
     this._swapView(gameShowView);
   },
 
   myGamesIndex: function () {
     var myGames = new UberMicro.Collections.MyGames();
     myGames.fetch()
-    var myGamesIndexView = new UberMicro.Views.MyGamesIndex({ collection: myGames });
+
+    var myGamesIndexView = new UberMicro.Views.MyGamesIndex({
+      collection: myGames
+    });
+
     this._swapView(myGamesIndexView);
   },
 
