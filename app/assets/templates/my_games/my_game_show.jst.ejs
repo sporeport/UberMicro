@@ -1,10 +1,8 @@
-<li>
-  <ul>
-    <li>title: <%= my_game.game.escape("title") %></li>
-    <li>genere: <%= my_game.game.escape("genre") %></li>
-    <li>company: <%= my_game.game.escape("company") %></li>
-    <li>description: <%= my_game.game.escape("description") %></li>
-    <li>status: <%= my_game.escape("status") %></li>
-    <li>my rating: <%= my_game.escape("my_rating") %></li>
-  </ul>
-</li>
+<figure class="my-game-instance">
+  <span class="title"><%= myGame.game.escape("title") %></span>
+  <span class="genre"><%= myGame.game.escape("genre") %></span>
+  <span class="company"><%= myGame.game.escape("company") %></span>
+  <span class="list"><%= myGame.escape("status") %></span>
+  <span class="avg-rating"><%= myGame.game.escape("avg_rating") %></span>
+  <span class="my-rating"><%= myGame.escape("my_rating") %></span>
+</figure>

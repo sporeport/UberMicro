@@ -4,7 +4,9 @@ h1, h2, h3, h4, h5,
 body, html, nav, div,
 span, figure, section,
 strong, button, li, ul,
-p, a, input, small, textarea {
+p, a, input, small, textarea,
+header, span {
+  display: block;
   padding: 0;
   margin: 0;
   border: 0;
@@ -246,4 +248,41 @@ button.disabled-want-button {
   background: #4c7cff;
   border-radius: 5px;
   padding: 5px;
+}
+
+/* myGames */
+
+.my-games-container {
+  margin: 10px auto;
+  width: 1000px
+}
+
+.my-games-header > span {
+  float: left;
+  width: 100px;
+}
+
+.my-game-instance > span {
+  float: left;
+  width: 100px;
+}
+
+span.company {
+  width: 300px;
+}
+
+span.title {
+  width: 150px;
+}
+
+span.genre {
+  width: 150px;
+}
+
+span.list {
+  width: 200px;
+}
+
+.my-games-header {
+  border-bottom: 1px solid #000;
 }
