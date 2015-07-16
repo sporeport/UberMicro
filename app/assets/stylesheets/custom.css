@@ -109,7 +109,7 @@ button {
 }
 
 #main-nav .sign-in-form > input {
-  float: right;
+  float: left;
   margin: 5px;
 }
 
@@ -125,7 +125,7 @@ button {
   background: #fff;
   border-radius: 5px;
   padding: 5px;
-  float: right;
+  float: left;
   margin: 5px;
   margin-left: 10px;
 }
