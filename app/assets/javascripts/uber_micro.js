@@ -4,6 +4,9 @@ window.UberMicro = {
   Views: {},
   Routers: {},
   initialize: function() {
+    this.currentUser = new UberMicro.Models.CurrentUser();
+    this.currentUser.fetch();
+
     var $rootEl = $("#content")
     var router = new UberMicro.Routers.Router({ $rootEl: $rootEl });
     Backbone.history.start();

@@ -1,8 +1,6 @@
 UberMicro.Routers.Router = Backbone.Router.extend({
 
   initialize: function (options) {
-    this.currentUser = new UberMicro.Models.CurrentUser();
-    this.currentUser.fetch();
 
     var searchBoxView = new UberMicro.Views.SearchBox({
       currentUser: this.currentUser
@@ -26,7 +24,6 @@ UberMicro.Routers.Router = Backbone.Router.extend({
 
     var gamesIndexView = new UberMicro.Views.GamesIndex({
       collection: this.games,
-      currentUser: this.currentUser
     });
 
     this._swapView(gamesIndexView);
@@ -38,7 +35,6 @@ UberMicro.Routers.Router = Backbone.Router.extend({
     var gameShowView = new UberMicro.Views.GameShow({
       model: game,
       showComments: true,
-      currentUser: this.currentUser
     });
 
     this._swapView(gameShowView);

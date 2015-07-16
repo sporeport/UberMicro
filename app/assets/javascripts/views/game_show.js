@@ -3,7 +3,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
-    this.currentUser = options.currentUser;
+    this.listenTo(UberMicro.currentUser, "sync", this.render)
     this.showComments = options.showComments || false;
   },
 
@@ -38,16 +38,9 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   render: function () {
-    var signed_in = true
-    if (jQuery.isEmptyObject(this.currentUser.attributes)) {
-      signed_in = false
-    }
-
-
     this.$el.html(this.template({
       game: this.model,
       showComments: this.showComments,
-      signed_in: signed_in
     }))
 
     return this;

@@ -108,16 +108,16 @@ button {
   float: right;
   margin: 20px 20px;
   box-shadow: inset 0 0 5px #0c726f;
-  background: #6ef0e6;
+  background: #fff;
   border-radius: 5px;
   padding: 5px;
 }
 
 #main-nav .sign-in-form button {
   box-shadow: inset 0 0 5px #0c726f;
-  background: #6ef0e6;
+  background: #fff;
   border-radius: 5px;
-  padding: 3px;
+  padding: 5px;
 }
 
 #main-nav .sign-in-form input {

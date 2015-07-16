@@ -2,7 +2,7 @@
 
   <button class="want-button"
           data-id="<%= game.id %>"
-          <% if (!signed_in) { %> disabled <% } %> >
+          <% if (!UberMicro.currentUser.signed_in()) { %> disabled <% } %> >
     <% if (game.myGame && game.myGame.get("status") === "wants-to-play") { %>
     unwant to play
     <% } else { %>
@@ -33,13 +33,14 @@
         </li>
       <% }) %>
 
-      <% if (signed_in)  { %>
+      <% if (UberMicro.currentUser.signed_in())  { %>
         <h3>Comment on <%= game.escape("title") %></h3>
 
         <li class="input-box">
           <form class="comment-form">
-            <textarea></textarea>
+            <textarea><% newComment.escape(body) %></textarea>
           </form>
+          <button class="submit-comment">post</button>
         </li>
       <% } %>
     </ul>
