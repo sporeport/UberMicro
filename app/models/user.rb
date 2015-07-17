@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   has_many :my_games
+  has_many :lists
   has_many :games, through: :my_games, source: :game
 
   def self.generate_token
@@ -31,6 +32,8 @@ class User < ActiveRecord::Base
   end
 
   after_initialize :ensure_token
+
+  after_create :ensure_lists
 
   attr_reader :password
 
@@ -73,5 +76,10 @@ class User < ActiveRecord::Base
 
   def ensure_token
     self.session_token ||= User.generate_token
+  end
+
+  def ensure_lists
+    self.lists.create(name: "played")
+    self.lists.create(name: "currently-playing")
   end
 end
