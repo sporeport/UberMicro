@@ -236,8 +236,8 @@ button {
   border-bottom-right-radius: 5px;
 }
 
-li.disabled-want-button {
-  opacity: .5;
+li.disabled-option {
+  display: none;
 }
 
 .want-button-options:hover {

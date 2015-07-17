@@ -65,7 +65,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
         }.bind(this)
       });
 
-      $(this.$(".want-button")).removeClass("disabled-want-button")
+      this.$(".want-button").removeClass("disabled-want-button")
 
 
     } else {
@@ -74,7 +74,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
         "status": "wants-to-play"
       });
 
-      $(this.$(".want-button")).addClass("disabled-want-button")
+      this.$(".want-button").addClass("disabled-want-button")
 
       myGame.save({}, {
         success: function () {
