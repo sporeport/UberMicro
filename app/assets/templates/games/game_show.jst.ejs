@@ -2,9 +2,9 @@
 
 
   <ul class="want-button-options-list">
-    <li>add to played</li>
-    <li>add to currently playing</li>
-    <li class="options-add-list">add list</li>
+    <li id="add-to-played">add to played</li>
+    <li id="add-to-currently-playing">add to currently playing</li>
+    <li id="options-add-list">add list</li>
   </ul>
 
   <button class="want-button-options"></button>
@@ -12,7 +12,11 @@
   <button class="want-button"
           data-id="<%= game.id %>"
           <% if (!UberMicro.currentUser.signed_in()) { %> disabled <% } %> >
-    want to play
+    <% if (game.myGame) { %>
+      <%= game.myGame.escape("status") %>
+    <% } else { %>
+      wants-to-play
+    <% } %>
   </button>
 
   <ul>

@@ -12,7 +12,46 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   events: {
     "click button.want-button": "toggleWTPGame",
     "click button.submit-comment-button": "submitComment",
-    "click button.want-button-options": "openOptions"
+    "click button.want-button-options": "openOptions",
+    "click #add-to-played": "addToPlayed"
+  },
+
+  addToPlayed: function (event) {
+    var myGame = this.model.myGame
+
+    if (myGame) {
+      if (myGame.get("status") === "played") {
+        return;
+      }
+
+      myGame.save({status: "played"}, {
+        success: function () {
+          this.render();
+        }.bind(this)
+      })
+    } else {
+      myGame = new UberMicro.Models.MyGame({
+        game_id: this.model.id,
+        status: "played"
+      });
+
+      $(this.$(".want-button")).addClass("disabled-want-button")
+
+      myGame.save({}, {
+        success: function () {
+          this.model.myGame = myGame;
+          this.render();
+        }.bind(this)
+      });
+    }
+
+    this.setOptionStatus($(event.currentTarget))
+  },
+
+  setOptionStatus: function ($target) {
+    if (this.model.myGame && this.model.myGame.get("status") === "played") {
+      $target.addClass("disabled-option")
+    }
   },
 
   toggleWTPGame: function (event) {
@@ -22,6 +61,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
       myGame.destroy({
         success: function () {
           this.model.myGame = null;
+          this.render();
         }.bind(this)
       });
 
@@ -85,8 +125,10 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     }))
 
     if (this.model.myGame) {
-      $(this.$(".want-button")).addClass("disabled-want-button")
+      this.$(".want-button").addClass("disabled-want-button")
     }
+
+    this.setOptionStatus(this.$("#add-to-played"));
 
     return this;
   }

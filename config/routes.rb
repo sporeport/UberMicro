@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: 'json' } do
-    get "games/popular", to: "games#popular"
-    get "games/recommended_for", to: "games#recommended_for"
 
-    resources :games, only: [:index, :show, :create, :destroy]
-    resources :my_games, only: [:index, :show, :create, :destroy]
+    resources :games, only: [:index, :show, :create, :destroy] do
+      collection do
+        get "popular"
+        get "recommended_for"
+      end
+    end
+    resources :my_games, only: [:index, :show, :create, :update, :destroy]
     resource :session, only: :show
     resources :comments, only: :create
     resources :users, only: :create

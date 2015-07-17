@@ -226,6 +226,7 @@ button {
   display: block;
 }
 
+
 .want-button-options {
   width: 31px;
   height: 31px;
@@ -233,6 +234,10 @@ button {
   border-left: 1px solid #217606;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+li.disabled-want-button {
+  opacity: .5;
 }
 
 .want-button-options:hover {

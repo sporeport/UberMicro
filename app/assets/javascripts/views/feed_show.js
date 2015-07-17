@@ -16,17 +16,17 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
           this.model.myGame = null;
         }.bind(this)
       });
-
-      $(this.$(".want-button")).removeClass("disabled-want-button")
+      //change
+      this.$(".want-button").removeClass("disabled-want-button");
 
 
     } else {
       myGame = new UberMicro.Models.MyGame({
-        "game_id": this.model.id,
-        "status": "wants-to-play"
+        game_id: this.model.id,
+        status: "wants-to-play"
       });
-
-      $(this.$(".want-button")).addClass("disabled-want-button")
+      ///change
+      this.$(".want-button").addClass("disabled-want-button");
 
       myGame.save({}, {
         success: function () {

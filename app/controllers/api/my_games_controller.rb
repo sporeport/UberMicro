@@ -23,6 +23,16 @@ class Api::MyGamesController < ApplicationController
     end
   end
 
+  def update
+    @myGame = MyGame.find(params[:id])
+
+    if @myGame.update(my_game_params)
+      render json: @myGame
+    else
+      render json: @myGame.errors.full_messages
+    end
+  end
+
   def destroy
     @myGame = MyGame.find(params[:id])
     @myGame.destroy
