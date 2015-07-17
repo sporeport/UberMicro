@@ -20,6 +20,10 @@ header, span {
   background: transparent;
 }
 
+a {
+  display: inline;
+}
+
 ul {
   list-style: none;
 }

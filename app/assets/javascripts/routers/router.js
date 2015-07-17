@@ -21,6 +21,8 @@ UberMicro.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
+    var homeView = new UberMicro.Views.UserHome();
+    this._swapView(homeView);
   },
 
   gamesIndex: function (query) {
