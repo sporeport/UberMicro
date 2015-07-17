@@ -33,6 +33,25 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+
+  def get_rec_genre
+    games = self.games
+    rec_games = []
+
+    i = 0
+    while i < 5 || i < games.count
+
+      game = games.sample
+      rec_game =  Game.where("genre = ?", game.genre).sample
+      rec_couple = [game.title, rec_game];
+
+      rec_games << rec_couple
+      i += 1
+    end
+
+    return rec_games
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

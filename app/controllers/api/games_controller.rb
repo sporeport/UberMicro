@@ -17,11 +17,18 @@ class Api::GamesController < ApplicationController
     @games = Game.joins('JOIN my_games ON my_games.game_id = games.id')
                  .group('games.id')
                  .order('COUNT(games.*)')
-                 .limit(10)
+                 .limit(5)
 
     render json: @games
   end
 
+  def recommended_for
+    @user = User.find(params[:user_id])
+
+    @rec_games = @user.get_rec_genre
+
+    render :recommended_for
+  end
 
   def show
     @game = Game.find(params[:id])

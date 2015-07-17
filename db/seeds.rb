@@ -1,14 +1,19 @@
 u1 = User.create(name: "sam", email: "sam", password: "samsam")
 
-10.times do |x|
+
+genres = ["action", "strategy", "sim"]
+companies = ["sony", "Atari", "Arkane Studios", "BioWare", "ArenaNet", "Blizzard Entertainment"]
+
+
+30.times do |x|
   title = Faker::Name.first_name
-  company = Faker::Company.name
+  company = companies[x % 5]
   genre = Faker::Lorem.word
   avg_rating = (x % 5)
   description = Faker::Lorem.paragraph
   Game.create(title: title,
               company: company,
-              genre: genre,
+              genre: genres[x % 3],
               avg_rating: avg_rating,
               description: description)
 end
