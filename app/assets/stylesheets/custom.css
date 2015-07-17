@@ -239,25 +239,25 @@ li.disabled-option:hover {
 .want-button-options {
   width: 31px;
   height: 31px;
-  background: #74e552;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
   border-left: 1px solid #217606;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
-.want-button-option:hover {
+.want-button-options:active {
   background: #0072bb;
 }
 
 .want-button {
-  background: #74e552;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   padding: 5px;
 }
 
 button.disabled-want-button {
-  background: #a7a8a9;
+  background: linear-gradient(to bottom, #fcfff4 0%,#dfe5d7 40%,#b3bead 100%);;
 }
 
 .games-list {

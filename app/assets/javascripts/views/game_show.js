@@ -74,8 +74,8 @@ UberMicro.Views.GameShow = Backbone.View.extend({
 
     } else {
       myGame = new UberMicro.Models.MyGame({
-        "game_id": this.model.id,
-        "status": "wants-to-play"
+        game_id: this.model.id,
+        status: "wants-to-play"
       });
 
       this.$(".want-button").addClass("disabled-want-button")
