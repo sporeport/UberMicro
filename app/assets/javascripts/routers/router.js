@@ -13,6 +13,7 @@ UberMicro.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
+    "home": "home",
     "games/:id": "gamesShow",
     "games/search/:query": "gamesIndex",
     "games/search/": "gamesIndex", //**** DO NOT LEAVE IN!!!

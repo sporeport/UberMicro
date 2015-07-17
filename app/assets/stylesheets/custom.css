@@ -145,16 +145,22 @@ button {
 
 /* sign-up container*/
 
-.sign-up-container {
+.sign-up-banner {
   background: #5c87ff;
+}
+
+
+.sign-up-container {
+  width: 1100px;
+  margin: 0 auto;
   padding: 20px 20px 0px 20px;
 }
 
 .sign-up-container > strong {
   font-size: 46px;
   font-weight: 700;
-  margin-left: 30px;
   width: 600px;
+  margin-left: 15px;
   float: left;
   text-align: center;
   letter-spacing: 3px;
@@ -162,12 +168,13 @@ button {
 
 .sign-up-container > h2 {
   float: right;
-  margin: 0px 0px 5px 0px;
+  margin-right: 25px;
 }
 
 .sign-up-container > form {
   clear: right;
   float: right;
+  margin-right: 20px;
 }
 
 .sign-up-container > form > button {
