@@ -2,9 +2,7 @@
   <div class="sign-up-container group">
     <strong>Play Your Next Favorite Video Game.</strong>
     <h2>Create an Account</h2>
-    <form action="<%= users_url %>" method="post">
-      <%= auth_token %>
-
+    <form>
       <input type="text" name="user[name]" value="<%= user.name %>" placeholder="name">
 
       <input type="text" name="user[email]" value="<%= user.email %>" placeholder="email">

@@ -21,14 +21,7 @@ UberMicro.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
-    if (UberMicro.View.CurrentUser.signed_in()) {
-      var homeView = new UberMicro.View.UserHomeView();
-    } else {
-      var homeView = new UberMicro.Views.GuestHome();
-    }
-
-    this._swapView(homeView);
-  }
+  },
 
   gamesIndex: function (query) {
     this.games.fetch({ data: { query: query }});

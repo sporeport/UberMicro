@@ -13,6 +13,11 @@ class UsersController < ApplicationController
   end
 
   def home
+    if signed_in?
+      @user = current_user
+    else
+      @user = User.new
+    end
     render :home
   end
 
