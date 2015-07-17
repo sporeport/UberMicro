@@ -64,22 +64,32 @@ button {
   cursor: pointer;
 }
 
+/* header */
+
+.header {
+  background: #00b8ff;
+  box-shadow: 0px 3px 5px 0px #000;
+  margin-bottom: 10px
+}
+
 /* nav */
 
 #main-nav {
-  background: #00b8ff;
-  box-shadow: 0 0px 5px 5px #ccc;
+  margin: auto;
+  width: 1100px;
 }
 
 #main-nav .search-box-container {
   float: left;
-  margin: 25px 20px;
+  margin: 25px 20px 10px 20px;
 }
 
 .search-field {
   border-right: 0;
   margin-right: 0;
   float: left;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .search-box-button {
@@ -87,7 +97,8 @@ button {
   width: 28px;
   height: 28px;
   border: 1px solid #ccc;
-  border-radius: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .search-box-button:hover {
@@ -96,27 +107,27 @@ button {
 
 #main-nav .logo {
   float: left;
-  padding: 16px 20px;
+  padding: 16px 20px 10px 20px;
 }
 
 #main-nav .nav-links {
   float: right;
-  margin: 25px 20px;
+  margin: 16px 20px 10px 20px;
 }
 
 #main-nav .sign-in-form {
   float: right;
-  margin: 20px
+  margin: 20px 20px 10px 20px;
 }
 
 #main-nav .sign-in-form > input {
   float: left;
-  margin: 5px;
+  margin: 5px 5px 0 5px;
 }
 
 #main-nav .sign-out-button {
   float: right;
-  margin: 20px 20px;
+  margin: 16px 20px 10px 20px;
   background: #fff;
   border-radius: 5px;
   padding: 5px;
@@ -127,7 +138,7 @@ button {
   border-radius: 5px;
   padding: 5px;
   float: left;
-  margin: 5px;
+  margin: 5px 5px 0 5px;
   margin-left: 10px;
 }
 

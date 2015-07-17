@@ -1,27 +1,29 @@
-<nav id="main-nav" class="group">
-  <h1 class=logo>UberMicro</h1>
+<span class="header group">
+  <nav id="main-nav" class="group">
+    <h1 class=logo>UberMicro</h1>
 
-  <search class="search-box-container"></search>
+    <search class="search-box-container"></search>
 
-  <% if signed_in? %>
-    <strong class='nav-links user-link'>Hi, <%= user.name %></strong>
-    <%= button_to_sign_out %>
-    <a class="nav-links home-link" href="">Home</strong></a>
-    <a class="nav-links my-games-link" href="#/my_games">myGames</strong></a>
-  <% else %>
-  <% user = User.new %>
+    <% if signed_in? %>
+      <strong class='nav-links user-link'>Hi, <%= user.name %></strong>
+      <%= button_to_sign_out %>
+      <a class="nav-links home-link" href="">Home</strong></a>
+      <a class="nav-links my-games-link" href="#/my_games">myGames</strong></a>
+    <% else %>
+    <% user = User.new %>
 
-  <form action="<%= session_url %>" method="post">
-    <%= auth_token %>
+    <form action="<%= session_url %>" method="post">
+      <%= auth_token %>
 
-    <span class="sign-in-form">
-      <input type="text" name="user[email]" value="<%= user.email %>" placeholder="email">
-      <input type="password" name="user[password]" placeholder="password">
-      <button>Sign In</button>
-    </span>
+      <span class="sign-in-form">
+        <input type="text" name="user[email]" value="<%= user.email %>" placeholder="email">
+        <input type="password" name="user[password]" placeholder="password">
+        <button>Sign In</button>
+      </span>
 
-  </form>
+    </form>
 
-  <% end %>
+    <% end %>
 
-</nav>
+  </nav>
+</span>
