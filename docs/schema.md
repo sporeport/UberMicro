@@ -36,15 +36,9 @@ game_id         | integer   | not null, foreign key (references games)
 author_id       | integer   | not null, foreign key (references users)
 body            | text      | not null
 
-<!-- unique index combining user_id and game_id -->
-
-
-
-
-
-
-
-
-
-
-#
+## lists
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+name            | string    | not null
+user_id         | integer   | not null
