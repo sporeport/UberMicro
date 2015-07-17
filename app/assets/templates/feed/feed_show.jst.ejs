@@ -19,12 +19,21 @@
     <li>
     <% if (game.escape("because_title")) { %>
       Because you liked <%=game.escape("because_title")%> we recommend
-      <a href="#/games/<%= game.id %>"> <%= game.escape("title") %> </a>
+      <a href="#/games/<%= game.id %>">
+        <em><%= game.escape("title") %></em>
+      </a>
     <% } else { %>
-      Popular on UberMicro <%= game.escape("title") %>
+      Popular on UberMicro
+      <a href="#/games/<%= game.id %>">
+        <em><%= game.escape("title") %></em>
+      </a>
     <% }%>
     </li>
-    <li>genre: <%= game.escape("genre") %></li>
+    <li>genre:
+      <a href="#/games/search/<%= game.escape("genre") %>">
+        <%= game.escape("genre") %>
+      </a>
+    </li>
     <li>company: <%= game.escape("company") %></li>
     <li>description: <%= game.escape("description") %></li>
   </ul>

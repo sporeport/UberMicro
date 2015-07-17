@@ -19,7 +19,7 @@ class Api::GamesController < ApplicationController
                  .order('COUNT(games.*)')
                  .limit(5)
 
-    render json: @games
+    render :popular
   end
 
   def recommended_for

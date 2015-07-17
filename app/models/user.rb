@@ -43,9 +43,11 @@ class User < ActiveRecord::Base
 
       game = games.sample
       rec_game =  Game.where("genre = ?", game.genre).sample
-      rec_couple = [game.title, rec_game];
 
-      rec_games << rec_couple
+      if rec_game != game
+        rec_couple = [game.title, rec_game];
+        rec_games << rec_couple
+      end
       i += 1
     end
 
