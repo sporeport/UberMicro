@@ -13,18 +13,15 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     "click button.want-button": "toggleWTPGame",
     "click button.submit-comment-button": "submitComment",
     "click button.want-button-options": "openOptions",
-    "click #add-to-played": "addToPlayed"
+    "click .want-button-options-list > li": "addToList"
   },
 
-  addToPlayed: function (event) {
+  addToList: function (event) {
     var myGame = this.model.myGame
+    var status = $(event.currentTarget).attr('id')
 
     if (myGame) {
-      if (myGame.get("status") === "played") {
-        return;
-      }
-
-      myGame.save({status: "played"}, {
+      myGame.save({status: status}, {
         success: function () {
           this.render();
         }.bind(this)
@@ -32,10 +29,10 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     } else {
       myGame = new UberMicro.Models.MyGame({
         game_id: this.model.id,
-        status: "played"
+        status: status
       });
 
-      $(this.$(".want-button")).addClass("disabled-want-button")
+      this.$(".want-button").addClass("disabled-want-button")
 
       myGame.save({}, {
         success: function () {
@@ -45,12 +42,19 @@ UberMicro.Views.GameShow = Backbone.View.extend({
       });
     }
 
-    this.setOptionStatus($(event.currentTarget))
+    this.setOptionStatus()
   },
 
-  setOptionStatus: function ($target) {
-    if (this.model.myGame && this.model.myGame.get("status") === "played") {
-      $target.addClass("disabled-option")
+  setOptionStatus: function () {
+    if (this.model.myGame) {
+
+      if (this.model.myGame.get("status") === "played") {
+        this.$("#played").addClass("disabled-option");
+      }
+
+      if (this.model.myGame.get("status") === "currently-playing") {
+        this.$("#currently-playing").addClass("disabled-option");
+      }
     }
   },
 
@@ -128,7 +132,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
       this.$(".want-button").addClass("disabled-want-button")
     }
 
-    this.setOptionStatus(this.$("#add-to-played"));
+    this.setOptionStatus();
 
     return this;
   }

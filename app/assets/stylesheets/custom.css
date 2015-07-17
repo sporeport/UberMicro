@@ -204,9 +204,18 @@ button {
   padding: 5px;
 }
 
-.want-button-options-list > li:hover {
+.want-button-options-list > li:not(.disabled-option):hover {
   color: #fff;
   cursor: pointer;
+}
+
+li.disabled-option {
+  color: #aaa;
+  opacity: .75;
+}
+
+li.disabled-option:hover {
+  cursor: default;
 }
 
 .want-button-options-list:after {
@@ -236,11 +245,7 @@ button {
   border-bottom-right-radius: 5px;
 }
 
-li.disabled-option {
-  display: none;
-}
-
-.want-button-options:hover {
+.want-button-option:hover {
   background: #0072bb;
 }
 
