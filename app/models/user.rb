@@ -14,6 +14,7 @@
 class User < ActiveRecord::Base
   validates :name, :password_digest, :email, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
+  validates :email, uniqueness: true
 
   has_many :my_games
   has_many :games, through: :my_games, source: :game
