@@ -6,11 +6,12 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     get "games/popular", to: "games#popular"
-    
+
     resources :games, only: [:index, :show, :create, :destroy]
     resources :my_games, only: [:index, :show, :create, :destroy]
     resource :session, only: :show
     resources :comments, only: :create
+    resources :users, only: :users
 
   end
 end
