@@ -12,7 +12,11 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
     var myGame = this.model.myGame
     var status = $(event.currentTarget).attr('id')
 
+
     if (myGame) {
+      if (myGame.get("status") === status) {
+        return;
+      }
       myGame.save({status: status}, {
         success: function () {
           this.render();
@@ -100,6 +104,8 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
     if (this.model.myGame) {
       $(this.$(".want-button")).addClass("disabled-want-button")
     }
+
+    this.setOptionStatus();
 
     return this;
   }
