@@ -235,6 +235,10 @@ li.disabled-option:hover {
   display: block;
 }
 
+.inactive {
+  display: none;
+}
+
 
 .want-button-options {
   width: 31px;
