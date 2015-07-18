@@ -196,17 +196,42 @@ button {
   display: none;
   border-radius: 10px;
   background: #0072bb;
-  right: -200px;
+  right: -220px;
   top: 0;
+  padding: 5px;
+  min-width: 200px;
 }
 
 .want-button-options-list > li {
   padding: 5px;
 }
 
-.want-button-options-list > li:not(.disabled-option):hover {
+.want-button-options-list > li:not(.disabled-option):not(#add-list):hover {
   color: #fff;
   cursor: pointer;
+}
+
+#add-list-text:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+#list-form > input {
+  clear: both;
+  float: left;
+  height: 25px;
+  width: 130px;
+}
+
+#list-form-submit-button {
+  float: left;
+  min-width: 27px;
+  height: 27px;
+  background: #fff;
+}
+
+#list-form-submit-button:hover {
+  background-color: #000;
 }
 
 li.disabled-option {

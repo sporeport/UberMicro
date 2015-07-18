@@ -19,7 +19,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   addList: function (event) {
-    $(event.currentTarget).addClass("inactive");
+    $(event.currentTarget).find("small").addClass("inactive");
     this.$("#list-form").removeClass("inactive");
   },
 
