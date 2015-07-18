@@ -16,6 +16,6 @@ Rails.application.routes.draw do
     resource :session, only: :show
     resources :comments, only: :create
     resources :users, only: :create
-
+    resources :lists, only: :create
   end
 end

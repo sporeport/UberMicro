@@ -198,8 +198,8 @@ button {
   background: #0072bb;
   right: -220px;
   top: 0;
-  padding: 5px;
   min-width: 200px;
+  padding: 5px;
 }
 
 .want-button-options-list > li {

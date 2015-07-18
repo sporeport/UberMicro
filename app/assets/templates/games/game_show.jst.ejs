@@ -1,18 +1,19 @@
 <figure class="game-instance">
 
+
   <ul class="want-button-options-list">
     <% UberMicro.currentUser.lists().forEach(function (list) { %>
       <li id="<%= list.escape("name") %>">
         <%= list.escape("name")%>
       </li>
     <% }) %>
-    <li id="add-list">
+    <span id="add-list">
       <small id="add-list-text">create a list</small>
       <form id="list-form" class="inactive">
         <input type="text" name="list[name]">
         <button id="list-form-submit-button"></button>
       </form>
-    </li>
+    </span>
   </ul>
 
   <button class="want-button-options"></button>

@@ -15,7 +15,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     "click button.want-button-options": "openOptions",
     "click #add-list": "addList",
     "submit #list-form": "submitList",
-    "click .want-button-options-list > li:not(#add-list)": "addToList"
+    "click .want-button-options-list > li": "addToList"
   },
 
   addList: function (event) {
@@ -24,7 +24,30 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   submitList: function (event) {
+    event.preventDefault();
 
+    var formData = $(event.currentTarget).serializeJSON();
+    var list = new UberMicro.Models.List(formData["list"]);
+    $(event.currentTarget).find("input").val("");
+
+
+    var that = this;
+    list.save({}, {
+      success: function () {
+        var $addList = that.$("#add-list")
+        that.$(".want-button-options-list").remove("#add-list");
+
+        UberMicro.currentUser.lists().add(list);
+        var $newList = $("<li>").text(list.get("name"))
+                               .attr("id", list.get("name"));
+
+        that.$(".want-button-options-list").append($newList);
+        $addList.find("#list-form").addClass("inactive");
+        $addList.find("#add-list-text").removeClass("inactive");
+        that.$(".want-button-options-list").append($addList);
+
+      }
+    });
   },
 
   addToList: function (event) {
