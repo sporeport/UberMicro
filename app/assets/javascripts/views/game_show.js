@@ -4,6 +4,9 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.comments(), "add", this.render);
+    this.listenTo(UberMicro.currentUser.lists(), "add", this.render)
+
+    this.optionsListIsOpen = false
 
     this.showComments = options.showComments || false;
     this.newComment = new UberMicro.Models.Comment();
@@ -26,26 +29,15 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   submitList: function (event) {
     event.preventDefault();
 
+    this.optionsListIsOpen = true;
+
     var formData = $(event.currentTarget).serializeJSON();
     var list = new UberMicro.Models.List(formData["list"]);
     $(event.currentTarget).find("input").val("");
 
-
-    var that = this;
     list.save({}, {
       success: function () {
-        var $addList = that.$("#add-list")
-        that.$(".want-button-options-list").remove("#add-list");
-
         UberMicro.currentUser.lists().add(list);
-        var $newList = $("<li>").text(list.get("name"))
-                               .attr("id", list.get("name"));
-
-        that.$(".want-button-options-list").append($newList);
-        $addList.find("#list-form").addClass("inactive");
-        $addList.find("#add-list-text").removeClass("inactive");
-        that.$(".want-button-options-list").append($addList);
-
       }
     });
   },
@@ -159,8 +151,12 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     this.$el.html(this.template({
       game: this.model,
       showComments: this.showComments,
-      newComment: this.newComment
+      newComment: this.newComment,
     }))
+
+    if (this.optionsListIsOpen) {
+      this.openOptions();
+    }
 
     if (this.model.myGame) {
       this.$(".want-button").addClass("disabled-want-button")

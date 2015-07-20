@@ -10,7 +10,7 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
     this.collection.forEach(function (model) {
       var showView = new UberMicro.Views.GameShow({
         model: model,
-        collection: this.collection
+        collection: this.collection,
       });
 
       this.addSubview(".games-list", showView);

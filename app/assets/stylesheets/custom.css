@@ -196,6 +196,9 @@ button {
   display: none;
   border-radius: 10px;
   background: #0072bb;
+
+  box-shadow: 3px 3px 2px 2px #000;
+
   right: -220px;
   top: 0;
   min-width: 200px;
