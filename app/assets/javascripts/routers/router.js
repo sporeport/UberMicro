@@ -6,9 +6,13 @@ UberMicro.Routers.Router = Backbone.Router.extend({
       currentUser: this.currentUser
     });
 
-    $(".search-box-container").html(searchBoxView.render().$el)
+    var guestSignInView = new UberMicro.Views.GuestSignIn();
 
-    this.$rootEl = options.$rootEl
+
+    $(".sign-in-form").append(guestSignInView.render().$el);
+    $(".search-box-container").html(searchBoxView.render().$el);
+
+    this.$rootEl = options.$rootEl;
     this.games = new UberMicro.Collections.Games();
   },
 

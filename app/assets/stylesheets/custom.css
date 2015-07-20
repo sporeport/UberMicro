@@ -83,7 +83,7 @@ button {
   width: 1100px;
 }
 
-#main-nav .search-box-container {
+.search-box-container {
   float: left;
   margin: 20px 20px 10px 20px;
 }
@@ -109,28 +109,43 @@ button {
   background: #0072bb;
 }
 
-#main-nav .logo {
+.logo {
   float: left;
   padding: 14px 20px 5px 20px;
 }
 
-#main-nav .nav-links {
+.nav-links {
   float: right;
   margin: 25px 20px 10px 20px;
 }
 
-#main-nav .sign-in-form {
+.sign-in-form {
   float: right;
   margin: 20px 20px 10px 20px;
 }
 
-#main-nav .sign-in-form > input {
+.guest-button-container {
+  float: right;
+}
+
+.guest-sign-in-button {
+  background: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+.sign-in-form > form > input {
   float: left;
   margin: 0px 5px 0 0px;
   border-radius: 5px;
 }
 
-#main-nav .sign-out-button {
+.sign-in-form > form {
+  float: left;
+}
+
+.sign-out-button {
   float: right;
   margin: 20px 20px 10px 20px;
   background: #fff;
@@ -138,12 +153,11 @@ button {
   padding: 5px;
 }
 
-#main-nav .sign-in-form > button {
+.sign-in-form > form > button {
   background: #fff;
   border-radius: 5px;
   padding: 5px;
   float: left;
-  margin: 0px 5px 0 0px;
   margin-left: 10px;
 }
 
