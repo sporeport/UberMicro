@@ -10,6 +10,7 @@ class Api::GamesController < ApplicationController
       @games = Game.all
     end
 
+    @myGames = MyGame.my_games_by_user_games(current_user, @games)
     render :index
   end
 

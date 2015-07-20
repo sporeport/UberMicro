@@ -54,7 +54,6 @@ class User < ActiveRecord::Base
     games = self.games
 
     rec_games = []
-    debugger
     i = 0
     while i < 5 || i < games.count
 

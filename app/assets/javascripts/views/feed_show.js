@@ -67,14 +67,9 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
 
   setOptionStatus: function () {
     if (this.model.myGame) {
-
-      if (this.model.myGame.get("status") === "played") {
-        this.$("#played").addClass("disabled-option");
-      }
-
-      if (this.model.myGame.get("status") === "currently-playing") {
-        this.$("#currently-playing").addClass("disabled-option");
-      }
+      //doesn't work for two or more word status
+      var status = this.model.myGame.get("status");
+      this.$("#" + status).addClass("disabled-option");
     }
   },
 
