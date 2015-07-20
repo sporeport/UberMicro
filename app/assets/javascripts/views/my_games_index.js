@@ -4,7 +4,7 @@ UberMicro.Views.MyGamesIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "sync", this.render);
   },
 
-  className: "my-games-container",
+  className: "my-games-container group",
 
   template: JST["my_games/my_games_index"],
 
