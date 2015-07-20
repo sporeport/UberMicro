@@ -10,7 +10,6 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
-
 class User < ActiveRecord::Base
   validates :name, :password_digest, :email, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
@@ -31,6 +30,18 @@ class User < ActiveRecord::Base
     nil
   end
 
+  def self.find_by_omniauth(uid, provider)
+    @user = User.find_by(uid: uid)
+
+    if !@user
+      return nil
+    elsif @user.provider != provider
+      return nil
+    else
+      return @user
+    end
+  end
+
   after_initialize :ensure_token
 
   after_create :ensure_lists
@@ -39,9 +50,11 @@ class User < ActiveRecord::Base
 
 
   def get_rec_genre
+    return nil if (self.games.blank?)
     games = self.games
-    rec_games = []
 
+    rec_games = []
+    debugger
     i = 0
     while i < 5 || i < games.count
 
@@ -57,6 +70,7 @@ class User < ActiveRecord::Base
 
     return rec_games
   end
+
 
   def password=(password)
     @password = password

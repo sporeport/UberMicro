@@ -26,8 +26,11 @@ class Api::GamesController < ApplicationController
     @user = User.find(params[:user_id])
 
     @rec_games = @user.get_rec_genre
-
-    render :recommended_for
+    if @rec_games
+      render :recommended_for
+    else
+      render json: {}
+    end
   end
 
   def show

@@ -5,8 +5,24 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
+    @user = User.find_by_omniauth(auth_hash[:uid].to_s, auth_hash[:provider])
 
-    fail
+    if !@user
+      @user = User.new({uid: auth_hash[:uid].to_s, provider: auth_hash[:provider]})
+      @user.name = auth_hash[:info][:name]
+      @user.email = auth_hash[:info][:email]
+      @user.password = SecureRandom.urlsafe_base64
+      if @user.save!
+        sign_in(@user)
+        redirect_to root_url
+      else
+        flash.now[:errors] = @user.errors.full_messages
+        redirect_to root_url
+      end
+    else
+      sign_in(@user)
+      redirect_to root_url
+    end
   end
 
   def create
@@ -26,7 +42,7 @@ class SessionsController < ApplicationController
   end
 
   private
-  
+
   def auth_hash
     request.env['omniauth.auth']
   end
