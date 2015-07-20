@@ -4,9 +4,14 @@ class SessionsController < ApplicationController
 
   end
 
+  def omniauth
+
+    fail
+  end
+
   def create
     @user = User.find_by_credentials(params[:user][:email],
-                                     params[:user][:password])                                 
+                                     params[:user][:password])
     if @user
       sign_in(@user)
       redirect_to root_path
@@ -18,6 +23,12 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     redirect_to root_path
+  end
+
+  private
+  
+  def auth_hash
+    request.env['omniauth.auth']
   end
 
 end

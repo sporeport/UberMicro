@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root to: "users#home"
 
+  #omni auth
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
+
   resources :users, only: :create
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: 'json' } do
-
     resources :games, only: [:index, :show, :create, :destroy] do
       collection do
         get "popular"

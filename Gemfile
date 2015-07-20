@@ -16,7 +16,7 @@ gem 'newrelic_rpm'
 gem 'bcrypt', require: 'bcrypt'
 gem 'backbone-on-rails'
 
-gem 'omniauth-google'
+gem "omniauth-google-oauth2"
 gem 'figaro'
 gem 'ejs'
 gem 'annotate'
