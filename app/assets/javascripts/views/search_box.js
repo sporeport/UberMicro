@@ -1,10 +1,5 @@
 UberMicro.Views.SearchBox = Backbone.View.extend({
 
-  initialize: function (options) {
-    this.currentUser = options.currentUser;
-    this.listenTo(this.currentUser, "sync", this.render);
-  },
-
   template: JST["search_box/search_box"],
 
   events: {
@@ -13,7 +8,7 @@ UberMicro.Views.SearchBox = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ currentUser: this.currentUser }));
+    this.$el.html(this.template());
     return this;
   },
 

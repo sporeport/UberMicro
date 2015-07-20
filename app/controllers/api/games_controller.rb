@@ -1,17 +1,21 @@
 class Api::GamesController < ApplicationController
 
   def index
-    @query = params[:query]
+    if signed_in?
+      @query = params[:query]
 
-    if !@query.blank?
-      @games = Game.where("title = ? OR genre = ? OR company = ?",
-                              @query, @query, @query)
+      if !@query.blank?
+        @games = Game.where("title = ? OR genre = ? OR company = ?",
+                                @query, @query, @query)
+      else
+        @games = Game.all
+      end
+
+      @myGames = MyGame.my_games_by_user_games(current_user, @games)
+      render :index
     else
-      @games = Game.all
+      render json: {}
     end
-
-    @myGames = MyGame.my_games_by_user_games(current_user, @games)
-    render :index
   end
 
   def popular

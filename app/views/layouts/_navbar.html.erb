@@ -5,7 +5,6 @@
     <search class="search-box-container"></search>
 
     <% if signed_in? %>
-      <strong class='nav-links user-link'>Hi, <%= user.name %></strong>
       <%= button_to_sign_out %>
       <a class="nav-links home-link" href="">Home</strong></a>
       <a class="nav-links my-games-link" href="#/my_games">myGames</strong></a>

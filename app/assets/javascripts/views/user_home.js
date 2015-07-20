@@ -8,7 +8,6 @@ UberMicro.Views.UserHome = Backbone.CompositeView.extend({
     this.games.fetch();
 
     this.listenTo(UberMicro.currentUser, "sync", this.loadRecGames);
-
     this.listenTo(this.mostPopularGames, "sync", this.waitForRender);
     this.listenTo(this.userRecommended, "sync", this.waitForRender);
   },

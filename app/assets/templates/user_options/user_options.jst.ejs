@@ -1,0 +1,5 @@
+<% if (UberMicro.currentUser.signed_in()) { %>
+  <strong class='user-link'>Hi,
+    <%= UberMicro.currentUser.escape("name") %>
+  </strong>
+<% } %>

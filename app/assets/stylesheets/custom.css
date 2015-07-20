@@ -72,8 +72,8 @@ button {
 
 .header {
   background: #00b8ff;
-  box-shadow: 0px 3px 5px 0px #000;
   position: relative;
+  /*display: block;*/
 }
 
 /* nav */
@@ -117,11 +117,24 @@ button {
 .nav-links {
   float: right;
   margin: 25px 20px 10px 20px;
+  position: relative;
+}
+
+.nav-links:hover {
+  color: white;
+}
+
+.user-link {
+  cursor: pointer;
+}
+
+.user-link:hover {
+  color: white;
 }
 
 .sign-in-form {
   float: right;
-  margin: 20px 20px 10px 20px;
+  margin-top: 20px;
 }
 
 .guest-button-container {
@@ -282,14 +295,6 @@ li.disabled-option:hover {
   border-left: 0 solid #fff;
 }
 
-.active {
-  display: block;
-}
-
-.inactive {
-  display: none;
-}
-
 
 .want-button-options {
   width: 31px;
@@ -422,4 +427,14 @@ span.list {
 
 .my-games-header {
   border-bottom: 1px solid #000;
+}
+
+
+/* on/off */
+.active {
+  display: block;
+}
+
+.inactive {
+  display: none;
 }

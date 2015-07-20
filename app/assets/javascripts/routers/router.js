@@ -1,27 +1,29 @@
 UberMicro.Routers.Router = Backbone.Router.extend({
 
   initialize: function (options) {
+    this.$rootEl = options.$rootEl;
+    this.games = new UberMicro.Collections.Games();
 
-    var searchBoxView = new UberMicro.Views.SearchBox({
-      currentUser: this.currentUser
-    });
-
+    var searchBoxView = new UberMicro.Views.SearchBox();
     var guestSignInView = new UberMicro.Views.GuestSignIn();
-
+    var userOptionsView = new UberMicro.Views.UserOptions();
 
     $(".sign-in-form").append(guestSignInView.render().$el);
     $(".search-box-container").html(searchBoxView.render().$el);
-
-    this.$rootEl = options.$rootEl;
-    this.games = new UberMicro.Collections.Games();
+    $("#main-nav").prepend(userOptionsView.render().$el);
   },
 
   routes: {
     "": "home",
+    "users/show": "userShow",
     "games/:id": "gamesShow",
     "games/search/:query": "gamesIndex",
     "games/search/": "gamesIndex", //**** DO NOT LEAVE IN!!!
     "my_games": "myGamesIndex"
+  },
+
+  userShow: function () {
+    
   },
 
   home: function () {
