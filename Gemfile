@@ -21,6 +21,7 @@ gem 'figaro'
 gem 'ejs'
 gem 'annotate'
 gem 'faker'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

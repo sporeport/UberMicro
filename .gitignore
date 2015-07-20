@@ -13,7 +13,7 @@
 /tmp
 
 #Ignore secrets
-config/secrets.yml
+#config/secrets.yml
 
 # Ignore application configuration
 /config/application.yml
