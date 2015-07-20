@@ -11,7 +11,7 @@ UberMicro.Views.UserOptions = Backbone.View.extend({
   },
 
   toggleUserOptions: function () {
-    Backbone.history.navigate("#/user/show", { trigger: true } )
+    Backbone.history.navigate("#/users/show", { trigger: true } )
   },
 
   render: function () {

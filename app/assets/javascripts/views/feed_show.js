@@ -4,7 +4,7 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
     this.listenTo(UberMicro.currentUser.lists(), "add", this.render);
   },
 
-  template: JST["feed/feed_show"],
+  template: JST["feeds/feed_show"],
 
   events: {
     "click button.want-button": "toggleWTPGame",

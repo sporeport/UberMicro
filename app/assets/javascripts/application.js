@@ -16,6 +16,7 @@
 //= require backbone
 //= require_tree ./utils
 //= require jquery.serializejson
+//= require date.js
 //= require uber_micro
 //= require_tree ../templates
 //= require_tree ./models

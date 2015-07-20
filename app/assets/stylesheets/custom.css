@@ -28,6 +28,11 @@ ul {
   list-style: none;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 /* utils */
 
 .group:after {
@@ -41,8 +46,10 @@ ul {
 input {
   background: white;
   border: 1px solid #ccc;
-  width: 200px;
-  height: 28px;
+  width: 146px;
+  height: 24px;
+  font-size: 16px;
+  padding: 2px 5px;
 }
 
 h1 {
@@ -80,7 +87,7 @@ button {
 
 #main-nav {
   margin: auto;
-  width: 1100px;
+  width: 1000px;
 }
 
 .search-box-container {
@@ -111,7 +118,7 @@ button {
 
 .logo {
   float: left;
-  padding: 14px 20px 5px 20px;
+  padding: 14px 20px 5px 0px;
 }
 
 .nav-links {
@@ -187,7 +194,7 @@ button {
 
 
 .sign-up-container {
-  width: 1100px;
+  width: 960px;
   margin: 0 auto;
   padding: 20px 20px 0px 20px;
 }
@@ -429,6 +436,15 @@ span.list {
   border-bottom: 1px solid #000;
 }
 
+/* user profile */
+.profile-page {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.profile-picture {
+  width: 100px;
+}
 
 /* on/off */
 .active {

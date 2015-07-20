@@ -23,7 +23,8 @@ UberMicro.Routers.Router = Backbone.Router.extend({
   },
 
   userShow: function () {
-    
+    var userShow = new UberMicro.Views.UserShow();
+    this._swapView(userShow);
   },
 
   home: function () {

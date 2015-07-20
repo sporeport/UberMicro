@@ -1,0 +1,15 @@
+<main class="profile-page">
+
+  <h2 class="profile-header"><%= user.escape("name")%>'s profile</h2>
+
+  <figure class="profile-picture">
+    <img src="http://i.imgur.com/5fNUevK.png" alt="user" />
+  </figure>
+
+  <% if (user.signed_in()) { %>
+    <figure class="profile-info">
+      <span>name          <%= user.escape("name")%></span>
+      <span>joined        <%= Date.parse(user.escape("created_at").slice(0, -5)).toString('MMMM d, yyyy') %></span>
+    </figure>
+  <% } %>
+</main>
