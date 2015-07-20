@@ -396,14 +396,16 @@ button.disabled-want-button {
   float: left;
   width: 100px;
   border-bottom: 1px solid #ccc;
+  height: 25px;
+  overflow: hidden;
 }
 
 span.company {
-  width: 300px;
+  width: 150px;
 }
 
 span.title {
-  width: 150px;
+  width: 300px;
 }
 
 span.genre {

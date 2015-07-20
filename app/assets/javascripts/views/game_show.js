@@ -16,9 +16,9 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     "click button.want-button": "toggleWTPGame",
     "click button.submit-comment-button": "submitComment",
     "click button.want-button-options": "openOptions",
+    "click .want-button-options-list > li": "addToList",
     "click #add-list": "addList",
-    "submit #list-form": "submitList",
-    "click .want-button-options-list > li": "addToList"
+    "submit #list-form": "submitList"
   },
 
   addList: function (event) {

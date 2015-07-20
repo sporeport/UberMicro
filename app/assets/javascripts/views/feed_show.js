@@ -1,22 +1,46 @@
 UberMicro.Views.FeedShow = Backbone.View.extend({
+
+  initialize: function (options) {
+    this.listenTo(UberMicro.currentUser.lists(), "add", this.render);
+  },
+
   template: JST["feed/feed_show"],
 
   events: {
     "click button.want-button": "toggleWTPGame",
     "click button.submit-comment-button": "submitComment",
     "click button.want-button-options": "openOptions",
-    "click .want-button-options-list > li": "addToList"
+    "click .want-button-options-list > li": "addToList",
+    "click #add-list": "addList",
+    "submit #list-form": "submitList"
+  },
+
+  addList: function (event) {
+    $(event.currentTarget).find("small").addClass("inactive");
+    this.$("#list-form").removeClass("inactive");
+  },
+
+  submitList: function (event) {
+    event.preventDefault();
+
+    this.optionsListIsOpen = true;
+
+    var formData = $(event.currentTarget).serializeJSON();
+    var list = new UberMicro.Models.List(formData["list"]);
+    $(event.currentTarget).find("input").val("");
+
+    list.save({}, {
+      success: function () {
+        UberMicro.currentUser.lists().add(list);
+      }
+    });
   },
 
   addToList: function (event) {
     var myGame = this.model.myGame
     var status = $(event.currentTarget).attr('id')
 
-
     if (myGame) {
-      if (myGame.get("status") === status) {
-        return;
-      }
       myGame.save({status: status}, {
         success: function () {
           this.render();
@@ -101,9 +125,14 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template({ game: this.model }))
 
-    if (this.model.myGame) {
-      $(this.$(".want-button")).addClass("disabled-want-button")
+    if (this.optionsListIsOpen) {
+      this.openOptions();
     }
+
+    if (this.model.myGame) {
+      this.$(".want-button").addClass("disabled-want-button")
+    }
+
 
     this.setOptionStatus();
 

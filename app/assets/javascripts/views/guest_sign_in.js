@@ -26,7 +26,7 @@ UberMicro.Views.GuestSignIn = Backbone.View.extend({
         if (!(uIdx === username.length + 1) || !(pIdx === password.length + 1)) {
           fillInLetter()
         }
-      }, 100)
+      }, 50)
     }
 
     fillInLetter();
