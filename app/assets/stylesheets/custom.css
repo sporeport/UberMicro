@@ -165,6 +165,11 @@ button {
 
 .sign-up-banner {
   background: #5c87ff;
+
+  /* uncomment for image */
+  /*background-image: url(http://s62.podbean.com/pb/319ac0c633d3d714e347cd99c2b8eb72/55ac6da7/data4/blogs32/608109/uploads/video_games_1.jpg);
+  background-size: cover;
+  height: 500px;*/
 }
 
 
