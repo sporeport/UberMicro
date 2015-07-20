@@ -1,6 +1,6 @@
-u1 = User.create(name: "sam", email: "sam", password: "samsam")
+u1 = User.create!(name: "sam", email: "sam", password: "samsam")
 
-guest = User.create(name: "guest", email: "guest@example.com", password: "password")
+guest = User.create!(name: "guest", email: "guest@example.com", password: "password")
 
 
 genres = ["action", "strategy", "sim"]

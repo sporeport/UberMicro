@@ -9,7 +9,8 @@
 
 class List < ActiveRecord::Base
   validates :user_id, :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, uniqueness: { scope: :user_id,
+                                 message: "you can only have one list of that name." }
 
   belongs_to :user
 end

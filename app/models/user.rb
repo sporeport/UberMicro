@@ -79,7 +79,7 @@ class User < ActiveRecord::Base
   end
 
   def ensure_lists
-    self.lists.create(name: "played")
-    self.lists.create(name: "currently-playing")
+    self.lists.create!(name: "played")
+    self.lists.create!(name: "currently-playing")
   end
 end
