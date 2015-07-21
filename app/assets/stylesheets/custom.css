@@ -132,7 +132,7 @@ button {
 }
 
 .nav-links:hover {
-  color: white;
+  color: #0072bb;
 }
 
 .user-link {
@@ -140,7 +140,7 @@ button {
 }
 
 .user-link:hover {
-  color: white;
+  color: #0072bb;
 }
 
 .sign-in-form {
@@ -180,6 +180,13 @@ button {
   padding: 5px;
 }
 
+.sign-out-button:hover,
+.sign-in-form > form > button:hover,
+.guest-sign-in-button:hover,
+.sign-up-container > form > button:hover {
+  background: #0072bb;
+}
+
 .sign-in-form > form > button {
   background: #fff;
   border-radius: 5px;
@@ -188,6 +195,7 @@ button {
   margin-left: 10px;
   color: #000;
 }
+
 
 /* sign-up container*/
 

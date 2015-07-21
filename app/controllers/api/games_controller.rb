@@ -33,7 +33,7 @@ class Api::GamesController < ApplicationController
     if @rec_games
       render :recommended_for
     else
-      render json: {}
+      render json: []
     end
   end
 
