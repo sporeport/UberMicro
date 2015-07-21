@@ -6,6 +6,13 @@
     <img src="http://i.imgur.com/5fNUevK.png" alt="user" />
   </figure>
 
+  <form class="avatar-upload-form">
+    <label for="input-user-avatar">Upload Avatar
+      <input type="file" name="user[avatar]" id="input-user-avatar">
+    </label>
+    <button>submit</button><br>
+  </form>
+
   <% if (user.signed_in()) { %>
     <figure class="profile-info">
       <span>name          <%= user.escape("name")%></span>

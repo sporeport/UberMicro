@@ -2,14 +2,21 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  name            :string           not null
-#  email           :string           not null
-#  session_token   :string           not null
-#  password_digest :string           not null
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  name                :string           not null
+#  email               :string           not null
+#  session_token       :string           not null
+#  password_digest     :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  uid                 :string
+#  provider            :string
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
+
 class User < ActiveRecord::Base
   validates :name, :password_digest, :email, :session_token, presence: true
   validates :password, length: { minimum: 6 }, allow_nil: true
@@ -18,6 +25,10 @@ class User < ActiveRecord::Base
   has_many :my_games
   has_many :lists
   has_many :games, through: :my_games, source: :game
+
+  has_attached_file :avatar, default_url: "default-user.png"
+
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   def self.generate_token
     SecureRandom.urlsafe_base64

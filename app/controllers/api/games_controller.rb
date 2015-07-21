@@ -1,26 +1,28 @@
+require "byebug"
 class Api::GamesController < ApplicationController
 
   def index
     @query = params[:query]
-    @games = Game.includes(:my_games)
 
     if signed_in?
-      @games.where("user.id = ?", current_user.id)
-    end
+      my_user_games = <<-SQL
+        LEFT OUTER JOIN (
+          #{current_user.my_games.to_sql}
+          ) AS my_user_games ON my_user_games.game_id = games.id
+      SQL
 
-    if !@query.blank?
-      @games.("title = ? OR genre = ? OR company = ?",
-                                              @query, @query, @query)
-    end
 
-    #
-    # else
-    #   @games = Game.all
-    # end
-    #
-    # if signed_in?
-    #   @myGames = MyGame.my_games_by_user_games(current_user, @games)
-    # end
+      my_games_select = <<-SQL
+        games.*,
+        my_user_games.status as status,
+        my_user_games.my_rating as my_rating,
+        my_user_games.id as my_game_id
+      SQL
+
+      @games = Game.joins(my_user_games).select(my_games_select)
+    else
+      @games = Game.all
+    end
 
     render :index
   end
