@@ -2,17 +2,25 @@ class Api::GamesController < ApplicationController
 
   def index
     @query = params[:query]
-
-    if !@query.blank?
-      @games = Game.where("title = ? OR genre = ? OR company = ?",
-                              @query, @query, @query)
-    else
-      @games = Game.all
-    end
+    @games = Game.includes(:my_games)
 
     if signed_in?
-      @myGames = MyGame.my_games_by_user_games(current_user, @games)
+      @games.where("user.id = ?", current_user.id)
     end
+
+    if !@query.blank?
+      @games.("title = ? OR genre = ? OR company = ?",
+                                              @query, @query, @query)
+    end
+
+    #
+    # else
+    #   @games = Game.all
+    # end
+    #
+    # if signed_in?
+    #   @myGames = MyGame.my_games_by_user_games(current_user, @games)
+    # end
 
     render :index
   end

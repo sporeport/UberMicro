@@ -205,7 +205,8 @@ button {
 .sign-out-button:hover,
 .sign-in-form > form > button:hover,
 .guest-sign-in-button:hover,
-.sign-up-container > form > button:hover {
+.sign-up-container > form > button:hover,
+.submit-comment-button:hover {
   background: #0072bb;
 }
 
@@ -304,7 +305,7 @@ button {
 #list-form > input {
   clear: both;
   float: left;
-  height: 25px;
+  height: 21px;
   width: 130px;
 }
 
@@ -429,9 +430,11 @@ button.disabled-want-button {
 
 .submit-comment-button {
   float: right;
-  background: #4c7cff;
+  background: #fff;
   border-radius: 5px;
   padding: 5px;
+  margin-right: 20px;
+  margin-top: 10px;
 }
 
 /* myGames */

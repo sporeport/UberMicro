@@ -13,7 +13,7 @@ UberMicro.Views.UserHome = Backbone.CompositeView.extend({
   },
 
   waitForRender: function () {
-    if (this.userRecommended && (this.mostPopularGames)) {
+    if (this.userRecommended && this.mostPopularGames) {
       this.userRecommended.add(this.mostPopularGames.models, { merge: true })
       this.render();
     }
