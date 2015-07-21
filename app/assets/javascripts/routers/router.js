@@ -17,8 +17,8 @@ UberMicro.Routers.Router = Backbone.Router.extend({
     "": "home",
     "users/show": "userShow",
     "games/:id": "gamesShow",
-    "games/search/:query": "gamesIndex",
-    "games/search/": "gamesIndex", //**** DO NOT LEAVE IN!!!
+    "games/search/:query": "gamesSearch",
+    "games/search/": "gamesSearch", //**** DO NOT LEAVE IN!!!
     "my_games": "myGamesIndex"
   },
 
@@ -32,7 +32,7 @@ UberMicro.Routers.Router = Backbone.Router.extend({
     this._swapView(homeView);
   },
 
-  gamesIndex: function (query) {
+  gamesSearch: function (query) {
     this.games.fetch({ data: { query: query }});
 
     var gamesIndexView = new UberMicro.Views.GamesIndex({

@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: 'json' } do
-    resources :games, only: [:index, :show, :create, :destroy] do
+    resources :games, only: [:show, :create, :destroy] do
       collection do
+        get "search"
         get "popular"
         get "recommended_for"
       end

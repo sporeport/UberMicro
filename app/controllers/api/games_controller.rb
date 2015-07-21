@@ -1,7 +1,7 @@
 require "byebug"
 class Api::GamesController < ApplicationController
 
-  def index
+  def search
     @query = params[:query]
 
     if signed_in?
@@ -22,6 +22,10 @@ class Api::GamesController < ApplicationController
       @games = Game.joins(my_user_games).select(my_games_select)
     else
       @games = Game.all
+    end
+
+    if !@query.blank?
+      @games = @games.where("title = ? OR company = ? OR genre = ?", @query, @query, @query)
     end
 
     render :index
