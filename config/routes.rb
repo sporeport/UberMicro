@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :my_games, only: [:index, :show, :create, :update, :destroy]
     resource :session, only: :show
     resources :comments, only: :create
-    resources :users, only: :create
+    resources :users, only: [:create, :show, :update]
     resources :lists, only: :create
   end
 end

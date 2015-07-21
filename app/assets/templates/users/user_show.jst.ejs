@@ -3,7 +3,7 @@
   <h2 class="profile-header"><%= user.escape("name")%>'s profile</h2>
 
   <figure class="profile-picture">
-    <img src="http://i.imgur.com/5fNUevK.png" alt="user" />
+    <img src="<%= user.escape("avatar_url") %>" alt="profile picture" />
   </figure>
 
   <form class="avatar-upload-form">
@@ -13,7 +13,7 @@
     <button>submit</button><br>
   </form>
 
-  <% if (user.signed_in()) { %>
+  <% if (user.get("created_at")) { %>
     <figure class="profile-info">
       <span>name          <%= user.escape("name")%></span>
       <span>joined        <%= Date.parse(user.escape("created_at").slice(0, -5)).toString('MMMM d, yyyy') %></span>

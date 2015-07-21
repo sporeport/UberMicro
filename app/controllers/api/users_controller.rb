@@ -1,5 +1,11 @@
 class Api::UsersController < ApplicationController
 
+  def show
+    @user = User.find(params[:id])
+
+    render :show
+  end
+
   def create
     @user = User.new(user_params)
 
@@ -12,7 +18,13 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
 
+    if @user.update(user_params)
+      render :show
+    else
+      render json: @user.errors.full_messages
+    end
   end
 
   private

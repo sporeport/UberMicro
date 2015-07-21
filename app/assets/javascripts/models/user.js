@@ -6,6 +6,11 @@ UberMicro.Models.User = Backbone.Model.extend({
     return json;
   },
 
+  signed_in: function () {
+    return !this.isNew();
+  },
+
+
   saveFormData: function(formData, options){
   // var method = this.isNew() ? "POST" : "PUT";
     var model = this;
@@ -17,6 +22,7 @@ UberMicro.Models.User = Backbone.Model.extend({
       processData: false,
       contentType: false,
       success: function(resp){
+        // debugger
         model.set(model.parse(resp));
         model.trigger('sync', model, resp, options);
         options.success && options.success(model, resp, options);

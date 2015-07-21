@@ -19,5 +19,6 @@ UberMicro.Models.CurrentUser = Backbone.Model.extend({
     }
 
     return response
-  }
+  },
+  
 })
