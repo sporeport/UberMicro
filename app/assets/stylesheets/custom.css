@@ -399,6 +399,7 @@ button.disabled-want-button {
   margin: 10px;
   background: #fff;
   max-width: 300px;
+  min-height: 60px;
   border-radius: 5px;
 }
 
@@ -410,6 +411,18 @@ button.disabled-want-button {
   resize: vertical;
   width: 300px;
   border-radius: 5px;
+}
+
+.avatar-thumb {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.avatar-thumb-container {
+  float: left;
+  width: 50px;
+  margin: 10px;
 }
 
 .comment-input-box {

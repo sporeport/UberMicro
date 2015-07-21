@@ -4,6 +4,7 @@ json.comments do
   json.array! @game.comments do |comment|
     json.extract! comment, :id, :body, :author_id, :game_id, :created_at
     json.author comment.author.name
+    json.author_avatar_url asset_path(comment.author.avatar.url(:original))
   end
 end
 

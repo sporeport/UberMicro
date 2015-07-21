@@ -58,7 +58,10 @@
       <% game.comments().forEach(function (comment) { %>
         <li>
           <small>by, <%= comment.escape("author") %></small>
-          <p>
+          <figure class="avatar-thumb-container">
+            <img class="avatar-thumb" src="<%= comment.escape("author_avatar_url") %>" alt="profile picture" />
+          </figure>
+          <p class="comment-text">
             <%= comment.escape("body") %>
           </p>
         </li>
