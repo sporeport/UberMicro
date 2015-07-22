@@ -128,7 +128,6 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
       this.$(".want-button").addClass("disabled-want-button")
     }
 
-
     this.setOptionStatus();
 
     return this;

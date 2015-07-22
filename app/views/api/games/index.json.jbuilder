@@ -3,6 +3,8 @@ json.results do
 
     json.extract! game, :id, :title, :company, :genre, :avg_rating, :description
 
+    json.image_url asset_path(game.image.url(:original))
+
     if signed_in? && game.my_game_id
       json.myGame({status: game.status, my_rating: game.my_rating, id: game.my_game_id})
     end

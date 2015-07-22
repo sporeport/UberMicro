@@ -1,6 +1,8 @@
 
 json.extract! @game, :id, :title, :genre, :company, :description, :avg_rating
 
+json.image_url asset_path(@game.image.url(:original))
+
 json.comments do
   json.array! @game.comments do |comment|
     json.extract! comment, :id, :body, :author_id, :game_id, :created_at

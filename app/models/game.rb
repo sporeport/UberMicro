@@ -2,15 +2,18 @@
 #
 # Table name: games
 #
-#  id          :integer          not null, primary key
-#  title       :string           not null
-#  company     :string
-#  genre       :string           not null
-#  avg_rating  :integer          not null
-#  description :text
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  image_url   :string
+#  id                 :integer          not null, primary key
+#  title              :string           not null
+#  company            :string
+#  genre              :string           not null
+#  avg_rating         :integer          not null
+#  description        :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
 #
 
 class Game < ActiveRecord::Base
@@ -25,12 +28,12 @@ class Game < ActiveRecord::Base
       genre: 'C'
     }
 
+  has_attached_file :image, default_url: "question-mark.png"
+
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates :title, :company, :genre, :avg_rating, :description, presence: true
 
   after_initialize :ensure_rating
-
-  has_attached_file :avatar, default_url: "question-mark.png"
-  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :my_games
   has_many :comments
