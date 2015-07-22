@@ -1,0 +1,10 @@
+<h3><%= game.escape("title") %></h3>
+
+<div class="game-image-container">
+  <img src="<%= game.escape("image_url") %>" alt="game image" />
+</div>
+<button class="add-game-to-ubermicro">add to UberMicro</button>
+
+<p>
+  <%= game.escape("description") %>
+</p>

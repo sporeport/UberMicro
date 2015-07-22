@@ -473,6 +473,36 @@ button.disabled-want-button {
   float: right;
 }
 
+/* gb game search results */
+
+.gb-game-instance {
+  padding: 5px;
+  margin: 10px auto;
+  background: #fff;
+  width: 400px;
+  min-height: 100px;
+  border-radius: 5px;
+}
+
+.gb-game-instance > h3 {
+  float: right;
+}
+
+.add-game-to-ubermicro {
+  float: right;
+  background: #0c0;
+  clear: right;
+}
+
+.game-image-container {
+  width: 80px;
+  float: left;
+}
+
+.gb-game-instance > p {
+  clear: both;
+}
+
 /* myGames */
 
 .my-games-container {

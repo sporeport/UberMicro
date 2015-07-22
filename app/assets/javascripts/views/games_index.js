@@ -3,8 +3,8 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
   initialize: function (options) {
     this.gbGames = new UberMicro.Collections.GbGames();
 
-    this.listenTo(this.gbGames, "sync", this.render);
-    this.listenTo(this.collection, "sync", this.render);
+    this.listenTo(this.gbGames, "sync", this.render.bind(this, true));
+    this.listenTo(this.collection, "sync", this.render.bind(this, false));
   },
 
   template: JST["games/games_index"],
@@ -23,14 +23,13 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
     })
   },
 
-  addGbSubview: function () {
+  addGbSubViews: function () {
     this.gbGames.forEach(function (model) {
       var gbGameShowView = new UberMicro.Views.GbGameShow({
         model: model,
-        collection: this.collection,
       });
 
-      this.addSubview(".games-list", showView);
+      this.addSubview(".games-list", gbGameShowView);
     }.bind(this))
   },
 
@@ -69,11 +68,15 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
     }.bind(this))
   },
 
-  render: function () {
+  render: function (gbRender) {
     this.$el.html(this.template({ games: this.collection }));
 
-    if (!this.collection.isEmpty()) {
+    if (!this.collection.isEmpty() && !gbRender) {
       this.addSubViews();
+    }
+
+    if (gbRender) {
+      this.addGbSubViews();
     }
 
     return this;

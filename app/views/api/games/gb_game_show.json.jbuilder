@@ -1,9 +1,8 @@
 json.array! @results do |game|
-  json.gbid(game["id"])
-  json.description(game["deck"])
-  json.title(game["name"])
-
-  if game["image"] && game["image"]["small_url"]
-    json.image_url(game["image"]["small_url"])
+  if game["image"] && game["image"]["thumb_url"] && game["deck"]
+    json.gbid(game["id"])
+    json.description(game["deck"])
+    json.title(game["name"])
+    json.image_url(game["image"]["thumb_url"])
   end
 end
