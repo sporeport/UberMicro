@@ -16,7 +16,9 @@
     </span>
   </ul>
 
-  <button class="want-button-options"></button>
+  <button class="want-button-options"
+          <% if (!UberMicro.currentUser.signed_in()) { %> disabled <% } %> >
+  </button>
 
   <button class="want-button"
           data-id="<%= game.id %>"
