@@ -112,12 +112,12 @@ UberMicro.Views.GameShow = Backbone.View.extend({
 
   submitComment: function (event) {
     event.preventDefault();
-    var $form = $(this.$(".comments-container").find("form"))
-
-    var formData = $form.serializeJSON()
+    
+    var $form = $(this.$(".comments-container").find("form"));
+    var formData = $form.serializeJSON();
 
     this.newComment.set(formData["comment"]);
-    this.newComment.set({ "game_id": this.model.id })
+    this.newComment.set({ "game_id": this.model.id });
 
     this.newComment.save({}, {
       success: function () {
