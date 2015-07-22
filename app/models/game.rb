@@ -11,7 +11,6 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-
 class Game < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search_by_tcg,
@@ -30,6 +29,19 @@ class Game < ActiveRecord::Base
   has_many :my_games
   has_many :comments
   has_many :users, through: :my_games, source: :user
+
+  def self.search_in_gb(query)
+    params_hash = {
+      format: "json",
+      api_key: ENV['GIANT_BOMB_API_KEY'],
+      resources: "game",
+      field_list: "name,deck,id,image",
+      query: query
+    }
+
+    results = RestClient.get "http://www.giantbomb.com/api/search", params: params_hash
+    JSON.parse(results)["results"]
+  end
 
   def self.with_my_games(user)
     my_user_games = <<-SQL

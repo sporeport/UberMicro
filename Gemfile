@@ -25,7 +25,7 @@ gem 'annotate'
 gem 'faker'
 gem "pg_search"
 gem "kaminari"
-
+gem 'rest-client'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

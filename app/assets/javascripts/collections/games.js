@@ -17,7 +17,7 @@ UberMicro.Collections.Games = Backbone.Collection.extend({
       });
     };
 
-    return game
+    return game;
   },
 
   parse: function (resp) {

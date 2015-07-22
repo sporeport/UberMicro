@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         get "search"
         get "popular"
         get "recommended"
+        get "gb_search"
       end
     end
     resources :my_games, only: [:index, :show, :create, :update, :destroy]
