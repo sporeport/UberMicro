@@ -64,6 +64,10 @@ class Api::GamesController < ApplicationController
     @game.title = game_data["name"]
     @game.genre = game_data["genres"][0]["name"]
 
+    if game_data["image"] && game_data["image"]["thumb_url"]
+      @game.image = game_data["image"]["thumb_url"]
+    end
+
     if @game.save
       render json: @game
     else

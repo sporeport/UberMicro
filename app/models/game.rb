@@ -10,7 +10,9 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image_url   :string
 #
+
 class Game < ActiveRecord::Base
   include PgSearch
   pg_search_scope :search_by_tcg,
@@ -24,7 +26,11 @@ class Game < ActiveRecord::Base
     }
 
   validates :title, :company, :genre, :avg_rating, :description, presence: true
+
   after_initialize :ensure_rating
+
+  has_attached_file :avatar, default_url: "question-mark.png"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   has_many :my_games
   has_many :comments
