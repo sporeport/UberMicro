@@ -19,10 +19,6 @@ class MyGame < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
-  def self.my_games_by_user_games(user, games)
-    self.where("user_id = ? AND game_id IN (?)", user.id, games.ids)
-  end
-
   private
 
   def ensure_my_rating

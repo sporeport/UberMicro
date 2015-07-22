@@ -1,5 +1,5 @@
 UberMicro.Collections.RecGames = Backbone.Collection.extend({
-  url: "/api/games/recommended_for",
+  url: "/api/games/recommended",
 
   model: UberMicro.Models.Game,
 

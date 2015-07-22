@@ -13,13 +13,41 @@
 #
 
 class Game < ActiveRecord::Base
-  validates :title, :company, :genre, :avg_rating, :description, presence: true
+  include PgSearch
+  pg_search_scope :search_by_tcg,
+    using: {
+      tsearch: { dictionary: "english" }
+    },
+    against: {
+      title: 'A',
+      company: 'B',
+      genre: 'C'
+    }
 
+  validates :title, :company, :genre, :avg_rating, :description, presence: true
   after_initialize :ensure_rating
 
   has_many :my_games
   has_many :comments
   has_many :users, through: :my_games, source: :user
+
+  def self.with_my_games(user)
+    my_user_games = <<-SQL
+      LEFT OUTER JOIN (
+        #{user.my_games.to_sql}
+        ) AS my_user_games ON my_user_games.game_id = games.id
+    SQL
+
+
+    my_games_select = <<-SQL
+      games.*,
+      my_user_games.status as status,
+      my_user_games.my_rating as my_rating,
+      my_user_games.id as my_game_id
+    SQL
+
+    @games = Game.joins(my_user_games).select(my_games_select)
+  end
 
   def user_my_game(user)
     self.my_games.where("user_id = ?", user.id).limit(1).first

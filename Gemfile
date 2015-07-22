@@ -23,6 +23,9 @@ gem 'figaro'
 gem 'ejs'
 gem 'annotate'
 gem 'faker'
+gem "pg_search"
+gem "kaminari"
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
