@@ -38,7 +38,7 @@ game_names = ["Advance Wars: Dual Strike",
               "Flower"]
 
 
-30.times do |x|
+500.times do |x|
   title = game_names[x % 30]
   company = companies[x % 5]
   genre = Faker::Lorem.word

@@ -1,8 +1,16 @@
-json.array! @games do |game|
+json.results do
+  json.array! @games do |game|
 
-  json.extract! game, :id, :title, :company, :genre, :avg_rating, :description
+    json.extract! game, :id, :title, :company, :genre, :avg_rating, :description
 
-  if signed_in? && game.my_game_id
-    json.myGame({status: game.status, my_rating: game.my_rating, id: game.my_game_id})
+    if signed_in? && game.my_game_id
+      json.myGame({status: game.status, my_rating: game.my_rating, id: game.my_game_id})
+    end
   end
 end
+
+json.total_pages(@games.total_pages)
+
+json.current_page(@games.current_page)
+
+json.query(@query)

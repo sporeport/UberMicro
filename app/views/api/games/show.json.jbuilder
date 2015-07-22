@@ -1,3 +1,4 @@
+
 json.extract! @game, :id, :title, :genre, :company, :description, :avg_rating
 
 json.comments do

@@ -2,16 +2,19 @@ class Api::GamesController < ApplicationController
 
   def search
     @query = params[:query]
+    @page = params[:page] || 1
 
     if signed_in?
-      @games = Game.with_my_games(current_user)
+      @games = Game.with_my_games(current_user).page(@page)
     else
-      @games = Game.all
+      @games = Game.all.page(@page)
     end
 
     if !@query.blank?
       @games = @games.search_by_tcg(@query)
     end
+
+
 
     render :index
   end

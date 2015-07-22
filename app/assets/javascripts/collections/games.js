@@ -18,5 +18,20 @@ UberMicro.Collections.Games = Backbone.Collection.extend({
     };
 
     return game
+  },
+
+  parse: function (resp) {
+    if (resp.query) {
+      this.query = resp.query;
+    }
+    if (resp.total_pages) {
+      this.total_pages = resp.total_pages;
+    }
+    if (resp.current_page) {
+      this.current_page = resp.current_page;
+    }
+
+    return resp.results;
   }
+
 })
