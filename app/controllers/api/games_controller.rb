@@ -55,7 +55,20 @@ class Api::GamesController < ApplicationController
   end
 
   def create
+    @gbid = params[:gbid]
+    game_data = Game.get_gb_game(@gbid)
 
+    @game = Game.new
+    @game.description = game_data["deck"]
+    @game.company = game_data["developers"][0]["name"]
+    @game.title = game_data["name"]
+    @game.genre = game_data["genres"][0]["name"]
+
+    if @game.save
+      render json: @game
+    else
+      render json: @game.errors.full_messages
+    end
   end
 
   def update

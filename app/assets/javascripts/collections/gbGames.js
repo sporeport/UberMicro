@@ -3,8 +3,5 @@ UberMicro.Collections.GbGames = Backbone.Collection.extend({
 
   model: UberMicro.Models.GbGame,
 
-  parse: function (resp) {
-    return resp;
-  }
 
 })

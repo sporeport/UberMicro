@@ -30,6 +30,17 @@ class Game < ActiveRecord::Base
   has_many :comments
   has_many :users, through: :my_games, source: :user
 
+  def self.get_gb_game(gbid)
+    params_hash = {
+      format: "json",
+      api_key: ENV['GIANT_BOMB_API_KEY'],
+      field_list: "name,deck,image,genres,developers",
+    }
+
+    results = RestClient.get "http://www.giantbomb.com/api/game/#{gbid}", params: params_hash
+    JSON.parse(results)["results"]
+  end
+
   def self.search_in_gb(query)
     params_hash = {
       format: "json",

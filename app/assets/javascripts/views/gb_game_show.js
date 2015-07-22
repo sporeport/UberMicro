@@ -9,7 +9,7 @@ UberMicro.Views.GbGameShow = Backbone.View.extend({
   },
 
   addGameToUberMicro: function () {
-    
+    this.model.addToUberMicro();
   },
 
   render: function () {
