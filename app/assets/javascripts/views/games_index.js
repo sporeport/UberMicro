@@ -12,23 +12,27 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
   },
 
   nextPage: function () {
-    this.collection.reset();
-    this.collection.fetch({
-      data: {
-        query: this.collection.query,
-        page: this.collection.current_page + 1
-      }
-    });
+    if (this.collection.current_page < this.collection.total_pages) {
+      this.collection.reset();
+      this.collection.fetch({
+        data: {
+          query: this.collection.query,
+          page: this.collection.current_page + 1
+        }
+      });
+    }
   },
 
   previousPage: function () {
-    this.collection.reset();
-    this.collection.fetch({
-      data: {
-        query: this.collection.query,
-        page: this.collection.current_page - 1
-      }
-    });
+    if (this.collection.current_page > 1) {
+      this.collection.reset();
+      this.collection.fetch({
+        data: {
+          query: this.collection.query,
+          page: this.collection.current_page - 1
+        }
+      });
+    }
   },
 
   addSubViews: function () {
@@ -44,7 +48,11 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template({ games: this.collection }));
-    this.addSubViews();
+
+    if (!this.collection.isEmpty()) {
+      this.addSubViews();
+    }
+
     return this;
   }
 })

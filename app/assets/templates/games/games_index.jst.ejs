@@ -1,6 +1,12 @@
 <nav class="page-nav group">
   <button class="previous-page-button">previous</button>
-  <span>Page <%= games.current_page %> of <%= games.total_pages %></span>
+  <span>Page
+    <% if (games.total_pages === 0) {%>
+      0
+    <% } else { %>
+      <%= games.current_page %>
+    <% } %>
+    of <%= games.total_pages %></span>
   <button class="next-page-button">next</button>
 </nav>
 
