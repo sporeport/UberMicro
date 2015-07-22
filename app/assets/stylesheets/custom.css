@@ -104,8 +104,6 @@ button {
 
 .header {
   background: #000;
-  /*position: fixed;*/
-  /*display: block;*/
 }
 
 /* nav */
@@ -373,7 +371,6 @@ button.disabled-want-button {
 .games-list {
   margin: auto;
   width: 500px;
-  padding-top: 20px;
 }
 
 .game-instance {
@@ -453,6 +450,27 @@ button.disabled-want-button {
   padding: 5px;
   margin-right: 20px;
   margin-top: 10px;
+}
+
+/* game search nav */
+
+.page-nav {
+  margin: 20px auto;
+  width: 300px;
+  border-bottom: 2px solid black;
+}
+
+.page-nav > span {
+  float: left;
+  margin-left: 50px
+}
+
+.previous-page-button {
+  float: left;
+}
+
+.next-page-button {
+  float: right;
 }
 
 /* myGames */

@@ -14,8 +14,6 @@ class Api::GamesController < ApplicationController
       @games = @games.search_by_tcg(@query)
     end
 
-
-
     render :index
   end
 
