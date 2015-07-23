@@ -434,6 +434,10 @@ button.disabled-want-button {
   float: right;
 }
 
+.game-description {
+  clear: both;
+  margin-top: 10px;
+}
 
 .feed-game-info {
   position: relative;
@@ -491,6 +495,8 @@ button.disabled-want-button {
   width: 80px;
   float: left;
   margin-top: 10px;
+  max-height: 120px;
+  overflow: hidden;
 }
 
 .jrating {
