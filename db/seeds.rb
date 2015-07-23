@@ -1,7 +1,6 @@
-u1 = User.create!(name: "sam", email: "sam", password: "samsam")
+u1 = User.create!(name: "sam", email: "sam", password: "samsam", avatar: Faker::Avatar.image())
 
-guest = User.create!(name: "guest", email: "guest@example.com", password: "password")
-
+guest = User.create!(name: "guest", email: "guest@example.com", password: "password", avatar: Faker::Avatar.image())
 
 genres = ["action", "strategy", "sim"]
 companies = ["sony", "Atari", "Arkane Studios", "BioWare", "ArenaNet", "Blizzard Entertainment"]
@@ -43,10 +42,11 @@ game_names = ["Advance Wars: Dual Strike",
   company = companies[x % 5]
   genre = Faker::Lorem.word
   description = Faker::Lorem.paragraph
-  Game.create(title: title,
-              company: company,
-              genre: genres[x % 3],
-              description: description)
+  game = Game.create(title: title,
+                     company: company,
+                     genre: genres[x % 3],
+                     description: description,
+                     image: Faker::Avatar.image())
 end
 
 

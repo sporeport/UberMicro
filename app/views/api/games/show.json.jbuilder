@@ -1,5 +1,5 @@
 
-json.extract! @game, :id, :title, :genre, :company, :description
+json.extract! @game, :id, :title, :genre, :company, :description, :description_long
 
 json.avg_rating(@game.avg_rating)
 json.image_url asset_path(@game.image.url(:original))
