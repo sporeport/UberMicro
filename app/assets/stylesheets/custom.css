@@ -101,6 +101,18 @@ button {
 
 .header {
   background: #000;
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.anchor {
+  height: 60px;
+  width: 60px;
+  margin: 0 auto;
+  background: transparent;
 }
 
 /* nav */
@@ -551,20 +563,34 @@ button.disabled-want-button {
 .page-nav {
   margin: 20px auto;
   width: 300px;
-  border-bottom: 2px solid black;
 }
 
 .page-nav > span {
   float: left;
-  margin-left: 50px
+  margin-left: 10px;
+  padding: 5px 12px;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
 }
 
 .previous-page-button {
   float: left;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
+  padding: 5px 10px;
 }
 
 .next-page-button {
   float: right;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
+  padding: 5px 20px;
+}
+
+.previous-page-button:active,
+.next-page-button:active {
+  background: #0072bb;
 }
 
 /* gb game search results */
