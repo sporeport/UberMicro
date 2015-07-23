@@ -77,9 +77,6 @@ button {
 }
 
 /* background img */
-.background-img-container {
-
-}
 
 .background-img {
   min-height: 100%;
@@ -259,7 +256,7 @@ button {
 
 .sign-up-container > h2 {
   float: right;
-  margin-right: 25px;
+  margin-right: 60px;
 }
 
 .sign-up-container > form {
@@ -268,12 +265,20 @@ button {
   margin-right: 20px;
 }
 
+.sign-up-container > form > input {
+  width: 250px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
 .sign-up-container > form > button {
   margin: 5px auto;
   padding: 5px;
   background: #fff;
   border-radius: 5px;
 }
+
+
 
 
 /* games index */

@@ -10,7 +10,11 @@ UberMicro.Views.GbGameShow = Backbone.View.extend({
 
   addGameToUberMicro: function (event) {
     $(event.currentTarget).text("adding...")
-    this.model.addToUberMicro();
+    this.model.save({}, {
+      success: function (data) {
+        Backbone.history.navigate("#/games/" + data.id, { trigger: true })
+      }
+    })
   },
 
   render: function () {
