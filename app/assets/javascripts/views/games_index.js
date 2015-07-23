@@ -16,6 +16,8 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
   },
 
   searchGb: function (event) {
+    $(event.currentTarget).text("loading games...")
+
     this.gbGames.fetch({
       data: {
         query: this.collection.query

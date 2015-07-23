@@ -390,6 +390,14 @@ button.disabled-want-button {
 
 .feed-game-info {
   clear: right;
+  position: relative;
+  left: 5px;
+}
+
+.show-game-info {
+  clear: right;
+  position: relative;
+  left: 5px;
 }
 
 .game-rec {
@@ -407,7 +415,6 @@ button.disabled-want-button {
 
 .game-title {
   display: block;
-  clear: right;
   font-size: 18px;
   font-weight: 700;
 }
@@ -417,6 +424,7 @@ button.disabled-want-button {
 }
 
 .game-description {
+  clear: left;
   margin-top: 10px;
 }
 
@@ -428,6 +436,32 @@ button.disabled-want-button {
   display: inline;
   font-size: 18px;
   font-weight: 700;
+}
+
+.add-game-container {
+  margin: 0 auto;
+  width: 480px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.game-image-container {
+  width: 80px;
+  float: left;
+  margin-top: 10px;
+}
+
+.search-gb-button {
+  margin: 5px auto;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
+}
+
+.search-gb-button:active {
+  background: #0072bb;
 }
 
 /* comments */
@@ -522,24 +556,36 @@ button.disabled-want-button {
   padding: 5px;
   margin: 10px auto;
   background: #fff;
-  width: 400px;
+  width: 500px;
   min-height: 100px;
   border-radius: 5px;
 }
 
+.gb-game-image-container {
+  width: 80px;
+  float: left;
+  margin: 10px;
+}
+
 .gb-game-instance > h3 {
   float: right;
+  clear: right;
+  font-size: 24px;
+  padding: 5px;
+  font-weight: 700;
 }
 
 .add-game-to-ubermicro {
   float: right;
-  background: #0c0;
-  clear: right;
+  background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 5px;
+  margin: 5px;
 }
 
-.game-image-container {
-  width: 80px;
-  float: left;
+.add-game-to-ubermicro:active {
+  background: #0072bb;
 }
 
 .gb-game-instance > p {

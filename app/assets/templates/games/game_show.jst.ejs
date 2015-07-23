@@ -33,29 +33,31 @@
     <% } %>
   </button>
 
-  <h3 class="game-title">
-    <a href="#/games/<%= game.id %>"><%= game.escape("title") %></a>
-  </h3>
+  <figure class="show-game-info">
+    <h3 class="game-title">
+      <a href="#/games/<%= game.id %>"><%= game.escape("title") %></a>
+    </h3>
 
-  <div class="game-company">
-    by,
-    <a href="/#/games/search/<%= game.escape("company")%>">
-      <%= game.escape("company") %>
-    </a>
-  </div>
-
-  <p class="game-genre">
-    Genre:
-    <strong>
-      <a href="/#/games/search/<%= game.escape("genre") %>">
-        <%= game.escape("genre") %>
+    <div class="game-company">
+      by,
+      <a href="/#/games/search/<%= game.escape("company")%>">
+        <%= game.escape("company") %>
       </a>
-    </strong>
-  </p>
+    </div>
 
-  <p class="game-description">
-    <%= game.escape("description") %>
-  </p>
+    <p class="game-genre">
+      Genre:
+      <strong>
+        <a href="/#/games/search/<%= game.escape("genre") %>">
+          <%= game.escape("genre") %>
+        </a>
+      </strong>
+    </p>
+
+  </figure>
+    <p class="game-description">
+      <%= game.escape("description") %>
+    </p>
 
 </figure>
 
