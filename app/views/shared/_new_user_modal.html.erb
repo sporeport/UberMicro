@@ -1,0 +1,16 @@
+<div class="screen-fill active"></div>
+
+
+<figure class="game-choices-container">
+  <% Game.some_samples.each do |game| %>
+    <section class="game-sample-container">
+      <h2><%= game.title %></h2>
+
+      <div class="game-image-container">
+        <img src="<%= asset_path(game.image.url(:original)) %>" alt="game image" />
+      </div>
+
+      <button class="want-button">want to play</button>
+    </section>
+  <% end %>
+</figure>

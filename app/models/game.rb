@@ -37,6 +37,17 @@ class Game < ActiveRecord::Base
   has_many :comments
   has_many :users, through: :my_games, source: :user
 
+  def self.some_samples
+    sample_games = []
+    games = Game.all
+
+    10.times do
+      sample_games << games.sample
+    end
+
+    sample_games
+  end
+
   def self.get_gb_game(gbid)
     params_hash = {
       format: "json",

@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to :action => 'home'
+      @new_user = true
+      # redirect_to :action => 'home'
+      render :home
     else
       flash[:errors] = @user.errors.full_messages
       redirect_to root_path
