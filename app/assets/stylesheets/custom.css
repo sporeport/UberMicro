@@ -225,6 +225,7 @@ button {
 }
 
 
+
 /* sign-up container*/
 
 .sign-up-banner {
@@ -279,7 +280,10 @@ button {
 }
 
 
-
+.sign-up-container > form > small {
+  margin: 0 auto;
+  width: 20px;
+}
 
 /* games index */
 
