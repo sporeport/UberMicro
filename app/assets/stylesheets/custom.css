@@ -5,7 +5,7 @@ body, html, nav, div,
 span, figure, section,
 strong, button, li, ul,
 p, a, input, small, textarea,
-header, span {
+header, span, em {
   display: block;
   padding: 0;
   margin: 0;
@@ -385,6 +385,49 @@ button.disabled-want-button {
 
 .game-instance button {
   float: right;
+}
+
+
+.feed-game-info {
+  clear: right;
+}
+
+.game-rec {
+  display: inline;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.game-rec:hover,
+.game-title:hover,
+.game-company > a:hover,
+.game-genre > strong:hover {
+  color: #0072bb;
+}
+
+.game-title {
+  display: block;
+  clear: right;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.game-company {
+  font-size: 14px;
+}
+
+.game-description {
+  margin-top: 10px;
+}
+
+.game-genre {
+  font-size: 14px;
+}
+
+.game-genre > strong {
+  display: inline;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 /* comments */

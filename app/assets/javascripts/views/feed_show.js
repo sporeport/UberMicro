@@ -62,16 +62,18 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
       });
     }
 
-    this.setOptionStatus()
+    // this.setOptionStatus()
   },
 
-  setOptionStatus: function () {
-    if (this.model.myGame) {
-      //doesn't work for two or more word status
-      var status = this.model.myGame.get("status");
-      this.$("#" + status).addClass("disabled-option");
-    }
-  },
+  // broken function
+  //
+  // setOptionStatus: function () {
+  //   if (this.model.myGame) {
+  //     //doesn't work for two or more word status
+  //     var status = this.model.myGame.get("status");
+  //     this.$("#" + status).addClass("disabled-option");
+  //   }
+  // },
 
   toggleWTPGame: function (event) {
     var myGame = this.model.myGame
@@ -128,7 +130,7 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
       this.$(".want-button").addClass("disabled-want-button")
     }
 
-    this.setOptionStatus();
+    // this.setOptionStatus();
 
     return this;
   }

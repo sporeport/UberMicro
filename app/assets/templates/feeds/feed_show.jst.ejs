@@ -30,26 +30,39 @@
     <img src="<%= game.escape("image_url") %>" alt="image" />
   </div>
 
-  <ul>
-    <li>
+
+  <figure class="feed-game-info">
     <% if (game.escape("because_title")) { %>
       Because you liked <%=game.escape("because_title")%> we recommend
       <a href="#/games/<%= game.id %>">
-        <em><%= game.escape("title") %></em>
+        <h3 class="game-rec"><%= game.escape("title") %></h3>
       </a>
     <% } else { %>
       Popular on UberMicro
       <a href="#/games/<%= game.id %>">
-        <em><%= game.escape("title") %></em>
+        <h3 class="game-rec"><%= game.escape("title") %></h3>
       </a>
     <% }%>
-    </li>
-    <li>genre:
-      <a href="#/games/search/<%= game.escape("genre") %>">
-        <%= game.escape("genre") %>
+
+    <div class="game-company">
+      by,
+      <a href="/#/games/search/<%= game.escape("company")%>">
+        <%= game.escape("company") %>
       </a>
-    </li>
-    <li>company: <%= game.escape("company") %></li>
-    <li>description: <%= game.escape("description") %></li>
-  </ul>
+    </div>
+
+    <p class="game-genre">
+      Genre:
+      <strong>
+        <a href="/#/games/search/<%= game.escape("genre") %>">
+          <%= game.escape("genre") %>
+        </a>
+      </strong>
+    </p>
+
+    <p class="game-description">
+      <%= game.escape("description") %>
+    </p>
+  </figure>
+
 </figure>
