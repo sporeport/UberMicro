@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722212338) do
+ActiveRecord::Schema.define(version: 20150723143110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20150722212338) do
     t.string   "title",              null: false
     t.string   "company"
     t.string   "genre",              null: false
-    t.integer  "avg_rating",         null: false
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -49,12 +48,12 @@ ActiveRecord::Schema.define(version: 20150722212338) do
   add_index "lists", ["user_id"], name: "index_lists_on_user_id", using: :btree
 
   create_table "my_games", force: :cascade do |t|
-    t.integer  "user_id",                null: false
-    t.integer  "game_id",                null: false
-    t.integer  "my_rating",  default: 0
+    t.integer  "user_id",    null: false
+    t.integer  "game_id",    null: false
     t.string   "status"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "my_rating"
   end
 
   add_index "my_games", ["game_id"], name: "index_my_games_on_game_id", using: :btree

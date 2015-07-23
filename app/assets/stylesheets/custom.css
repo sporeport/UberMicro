@@ -67,11 +67,8 @@ h3 {
 
 
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
-  /*background-image: url("http://i.imgur.com/2D2aJVc.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;*/
 }
 
 button {
@@ -345,6 +342,8 @@ li.disabled-option:hover {
 
 
 .want-button-options {
+  position: relative;
+  z-index: 1;
   width: 31px;
   height: 31px;
   background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
@@ -358,6 +357,8 @@ li.disabled-option:hover {
 }
 
 .want-button {
+  position: relative;
+  z-index: 1;
   background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -389,13 +390,11 @@ button.disabled-want-button {
 
 
 .feed-game-info {
-  clear: right;
   position: relative;
   left: 5px;
 }
 
 .show-game-info {
-  clear: right;
   position: relative;
   left: 5px;
 }
@@ -417,6 +416,7 @@ button.disabled-want-button {
   display: block;
   font-size: 18px;
   font-weight: 700;
+  clear: right;
 }
 
 .game-company {
@@ -453,9 +453,20 @@ button.disabled-want-button {
 }
 
 .jrating {
+  font-size: 14px;
   margin: 5px;
   clear: left;
   float: left;
+}
+
+.jrating-avg {
+  font-size: 14px;
+  float: left;
+}
+
+.jrating-avg > div,
+.jrating > div {
+  display: inline;
 }
 
 .search-gb-button {

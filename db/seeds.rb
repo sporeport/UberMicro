@@ -42,12 +42,10 @@ game_names = ["Advance Wars: Dual Strike",
   title = game_names[x % 30]
   company = companies[x % 5]
   genre = Faker::Lorem.word
-  avg_rating = (x % 5)
   description = Faker::Lorem.paragraph
   Game.create(title: title,
               company: company,
               genre: genres[x % 3],
-              avg_rating: avg_rating,
               description: description)
 end
 

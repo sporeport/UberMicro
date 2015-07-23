@@ -6,7 +6,6 @@
 #  title              :string           not null
 #  company            :string
 #  genre              :string           not null
-#  avg_rating         :integer          not null
 #  description        :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -31,9 +30,7 @@ class Game < ActiveRecord::Base
   has_attached_file :image, default_url: "question-mark.png"
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
-  validates :title, :company, :genre, :avg_rating, :description, presence: true
-
-  after_initialize :ensure_rating
+  validates :title, :company, :genre, :description, presence: true
 
   has_many :my_games
   has_many :comments
@@ -81,14 +78,21 @@ class Game < ActiveRecord::Base
     @games = Game.joins(my_user_games).select(my_games_select)
   end
 
+  def avg_rating
+    ratings = self.my_games.select("my_games.my_rating").where("my_games.my_rating > 0")
+
+    sum = ratings.inject(0) do |sum, my_game|
+      sum + my_game.my_rating
+    end
+
+    if ratings.count == 0
+      0
+    else
+      (sum / ratings.count)
+    end
+  end
+
   def user_my_game(user)
     self.my_games.where("user_id = ?", user.id).limit(1).first
   end
-
-  private
-
-  def ensure_rating
-    self.avg_rating ||= 0
-  end
-
 end

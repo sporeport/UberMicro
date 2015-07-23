@@ -13,6 +13,6 @@
     </a>
   </span>
   <span class="list"><%= myGame.escape("status") %></span>
-  <span class="avg-rating"><%= myGame.game.escape("avg_rating") %></span>
-  <span class="my-rating"><%= myGame.escape("my_rating") %></span>
+  <span class="avg_rating"><div id="jRateAvg<%= myGame.game.id %>"></div></span>
+  <span class="my_rating"><div id="jRate<%= myGame.id %>"></div></span>
 </figure>
