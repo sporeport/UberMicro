@@ -452,6 +452,12 @@ button.disabled-want-button {
   margin-top: 10px;
 }
 
+.jrating {
+  margin: 5px;
+  clear: left;
+  float: left;
+}
+
 .search-gb-button {
   margin: 5px auto;
   padding: 5px;

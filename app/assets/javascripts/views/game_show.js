@@ -3,8 +3,9 @@ UberMicro.Views.GameShow = Backbone.View.extend({
 
   initialize: function (options) {
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.myGame, "sync", this.render);
     this.listenTo(this.model.comments(), "add", this.render);
-    this.listenTo(UberMicro.currentUser.lists(), "add", this.render)
+    this.listenTo(UberMicro.currentUser.lists(), "add", this.render);
 
     this.optionsListIsOpen = false
 
@@ -71,7 +72,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     // this.setOptionStatus()
   },
 
-  // broken function 
+  // broken function
   //
   // setOptionStatus: function () {
   //   if (this.model.myGame) {
@@ -144,12 +145,36 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     }
   },
 
+  addStarRating: function () {
+    $("#jRate" + this.model.id).jRate({
+      rating: this.model.myGame.get("my_rating"),
+      startColor: '#efad06',
+      endColor: '#efad06',
+      backgroundColor: '#cccccc',
+      precision: 0.5,
+      width: 20,
+  		height: 20,
+
+      onSet: function(rating) {
+        debugger
+        this.model.myGame.set({ "my_rating": rating })
+        this.model.myGame.save()
+      }.bind(this)
+    });
+  },
+
   render: function () {
     this.$el.html(this.template({
       game: this.model,
       showComments: this.showComments,
       newComment: this.newComment,
     }))
+
+    if (this.model.myGame &&
+        this.model.myGame.get("status") !== "wants-to-play") {
+
+      this.addStarRating();
+    }
 
     if (this.optionsListIsOpen) {
       this.openOptions();
