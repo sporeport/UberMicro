@@ -52,7 +52,7 @@ class Game < ActiveRecord::Base
     params_hash = {
       format: "json",
       api_key: ENV['GIANT_BOMB_API_KEY'],
-      field_list: "name,deck,image,genres,developers",
+      field_list: "name,deck,image,genres,developers,id",
     }
 
     results = RestClient.get "http://www.giantbomb.com/api/game/#{gbid}", params: params_hash
@@ -88,6 +88,30 @@ class Game < ActiveRecord::Base
     SQL
 
     @games = Game.joins(my_user_games).select(my_games_select)
+  end
+
+  def self.put_working_ids_in_file(num)
+    f = File.open("working_ids.txt", "a")
+
+    num.times do
+      game_data = Game.get_gb_game(rand(100..8000))
+      if !game_data.empty? && game_data["developers"] && game_data["developers"][0] &&
+         game_data["deck"] && game_data["name"] && game_data["genres"] &&
+         game_data["genres"][0]
+
+        game = Game.new
+        game.description = game_data["deck"]
+        game.company = game_data["developers"][0]["name"]
+        game.title = game_data["name"]
+        game.genre = game_data["genres"][0]["name"]
+
+        if game.valid? && game_data["image"] && game_data["image"]["thumb_url"]
+          f.puts("#{game_data["id"]}~!~#{game_data["deck"]}~!~#{game_data["developers"][0]["name"]}~!~#{game_data["name"]}~!~#{game_data["genres"][0]["name"]}~!~#{game_data["image"]["thumb_url"]}")
+        end
+      end
+    end
+
+    f.close
   end
 
   def avg_rating
