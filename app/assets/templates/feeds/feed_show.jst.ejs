@@ -39,12 +39,12 @@
     </small>
 
     <% if (game.escape("because_title")) { %>
-      <h3>Because you liked <%=game.escape("because_title")%> we recommend</h3>
+      <h3>Because you liked <%=game.escape("because_title")%> we recommend:</h3>
       <a href="#/games/<%= game.id %>">
         <h3 class="game-rec"><%= game.escape("title") %></h3>
       </a>
     <% } else { %>
-      <h3>Popular on UberMicro</h3>
+      <h3>Popular on UberMicro:</h3>
       <a href="#/games/<%= game.id %>">
         <h3 class="game-rec"><%= game.escape("title") %></h3>
       </a>
