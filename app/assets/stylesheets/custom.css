@@ -329,11 +329,8 @@ button {
 
 .want-button-options-list {
   position: absolute;
-  display: none;
   border-radius: 10px;
   background: #fff;
-
-  /*box-shadow: 3px 3px 1px 2px #000;*/
 
   right: -220px;
   top: 0;
@@ -366,6 +363,8 @@ button {
   float: left;
   height: 21px;
   width: 130px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 #list-form-submit-button {
@@ -373,6 +372,8 @@ button {
   min-width: 27px;
   height: 27px;
   background: #000;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 #list-form-submit-button:hover {
@@ -457,6 +458,10 @@ button.disabled-want-button {
 .feed-game-info {
   position: relative;
   left: 5px;
+}
+
+.feed-game-info > h3 {
+  clear: right;
 }
 
 .show-game-info {

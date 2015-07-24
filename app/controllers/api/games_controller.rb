@@ -40,8 +40,16 @@ class Api::GamesController < ApplicationController
 
   def gb_search
     @query = params[:query]
+    @page = params[:page] || 1
 
-    @results = Game.search_in_gb(@query)
+    @games_per_page = 10
+    games = Game.search_in_gb(@query)
+
+    @total_games = games.count
+
+    @total_pages = (@total_games.to_f / @games_per_page.to_f).ceil
+
+    @results = games.slice((@page.to_i - 1) * @games_per_page, @games_per_page)
 
     if @results.blank?
       render json: []

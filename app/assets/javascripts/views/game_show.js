@@ -39,6 +39,9 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     list.save({}, {
       success: function () {
         UberMicro.currentUser.lists().add(list);
+
+        this.$(".want-button-options-list").addClass("inactive")
+        this.$(".want-triangle").addClass("inactive")
       }
     });
   },
@@ -136,12 +139,12 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     var $button = this.$(".want-button-options-list")
     var $tri = this.$(".want-triangle")
 
-    if ($button.hasClass("active")) {
-      $button.removeClass("active");
-      $tri.removeClass("active");
+    if ($button.hasClass("inactive")) {
+      $button.removeClass("inactive");
+      $tri.removeClass("inactive");
     } else {
-      $button.addClass("active");
-      $tri.addClass("active");
+      $button.addClass("inactive");
+      $tri.addClass("inactive");
     }
   },
 

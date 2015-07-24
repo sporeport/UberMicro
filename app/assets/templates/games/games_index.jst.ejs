@@ -1,30 +1,46 @@
-<nav class="page-nav group">
-  <button class="previous-page-button">previous</button>
-  <span>Page
-    <% if (games.total_pages === 0) {%>
-      0
-    <% } else { %>
-      <%= games.current_page %>
-    <% } %>
-    of <%= games.total_pages %></span>
-  <button class="next-page-button">next</button>
-</nav>
+<% if (gbGames.isEmpty()) { %>
+  <nav class="page-nav group">
+    <button class="previous-page-button">previous</button>
+    <span>Page
+      <% if (games.total_pages === 0) { %>
+        0
+      <% } else { %>
+        <%= games.current_page %>
+      <% } %>
+      of <%= games.total_pages %></span>
+    <button class="next-page-button">next</button>
+  </nav>
 
-<section class="games-list"></section>
+  <section class="games-list"></section>
 
-<% if (games.total_pages === 0) { %>
-  <section class="add-game-container">
-    <p class="add-game-text">
-      This is embarrassing...
-    </p>
-    <p class="add-game-text">
-      We couldn't find the game you were looking for.
-    </p>
-    <p class="add-game-text">
-      Would you like to search and add it to our database?
-    </p>
+  <% if (games.total_pages === 0) { %>
+    <section class="add-game-container">
+      <p class="add-game-text">
+        This is embarrassing...
+      </p>
+      <p class="add-game-text">
+        We couldn't find the game you were looking for.
+      </p>
+      <p class="add-game-text">
+        Would you like to search and add it to our database?
+      </p>
 
-    <button class="search-gb-button">search</button>
-  </section>
+      <button class="search-gb-button">search</button>
+    </section>
 
+  <% } %>
+<% } else { %>
+  <nav class="page-nav group">
+    <button class="previous-page-button">previous</button>
+    <span>Page
+      <% if (gbGames.total_pages === 0) { %>
+        0
+      <% } else { %>
+        <%= gbGames.current_page %>
+      <% } %>
+      of <%= gbGames.total_pages %></span>
+    <button class="next-page-button">next</button>
+  </nav>
+
+  <section class="games-list"></section>
 <% } %>

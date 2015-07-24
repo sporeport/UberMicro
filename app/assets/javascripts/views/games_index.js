@@ -36,15 +36,28 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
   },
 
   nextPage: function () {
-    if (this.collection.current_page < this.collection.total_pages) {
-      this.collection.reset();
-      this.collection.fetch({
-        data: {
-          query: this.collection.query,
-          page: this.collection.current_page + 1
-        }
-      });
+    if (this.gbGames.isEmpty()) {
+      if (this.collection.current_page < this.collection.total_pages) {
+        this.collection.reset();
+        this.collection.fetch({
+          data: {
+            query: this.collection.query,
+            page: this.collection.current_page + 1
+          }
+        });
+      }
+    } else {
+      if (this.gbGames.current_page < this.gbGames.total_pages) {
+        this.gbGames.reset();
+        this.gbGames.fetch({
+          data: {
+            query: this.gbGames.query,
+            page: parseInt(this.gbGames.current_page) + 1
+          }
+        });
+      }
     }
+
   },
 
   previousPage: function () {
@@ -56,10 +69,24 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
           page: this.collection.current_page - 1
         }
       });
+    } else {
+      if (this.gbGames.current_page > 1) {
+        this.gbGames.reset();
+        this.gbGames.fetch({
+          data: {
+            query: this.gbGames.query,
+            page: parseInt(this.gbGames.current_page) - 1
+          }
+        });
+      }
     }
   },
 
   addSubViews: function () {
+    //first empty gbGames so there is no conflict
+    //check
+    this.gbGames.reset();
+
     this.collection.forEach(function (model) {
       var showView = new UberMicro.Views.GameShow({
         model: model,
@@ -71,7 +98,7 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
   },
 
   render: function (gbRender) {
-    this.$el.html(this.template({ games: this.collection }));
+    this.$el.html(this.template({ games: this.collection, gbGames: this.gbGames }));
 
     if (!this.collection.isEmpty() && !gbRender) {
       this.addSubViews();

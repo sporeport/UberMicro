@@ -110,17 +110,50 @@ UberMicro.Views.FeedShow = Backbone.View.extend({
     var $button = this.$(".want-button-options-list")
     var $tri = this.$(".want-triangle")
 
-    if ($button.hasClass("active")) {
-      $button.removeClass("active");
-      $tri.removeClass("active");
+    if ($button.hasClass("inactive")) {
+      $button.removeClass("inactive");
+      $tri.removeClass("inactive");
     } else {
-      $button.addClass("active");
-      $tri.addClass("active");
+      $button.addClass("inactive");
+      $tri.addClass("inactive");
+    }
+  },
+
+  addStarRatings: function () {
+    $("#jRateAvg" + this.model.id).jRate({
+      rating: this.model.get("avg_rating"),
+      startColor: '#efad06',
+      endColor: '#efad06',
+      backgroundColor: '#cccccc',
+      width: 12,
+  		height: 12,
+      readOnly: true
+    });
+
+    if (this.model.myGame &&
+        this.model.myGame.get("status") !== "wants-to-play") {
+
+      $("#jRate" + this.model.id).jRate({
+        rating: this.model.myGame.get("my_rating"),
+        startColor: '#efad06',
+        endColor: '#efad06',
+        backgroundColor: '#cccccc',
+        precision: 0.5,
+        width: 12,
+    		height: 12,
+
+        onSet: function(rating) {
+          this.model.myGame.set({ "my_rating": rating })
+          this.model.myGame.save()
+        }.bind(this)
+      });
     }
   },
 
   render: function () {
     this.$el.html(this.template({ game: this.model }))
+
+    this.addStarRatings();
 
     if (this.optionsListIsOpen) {
       this.openOptions();

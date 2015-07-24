@@ -4,7 +4,7 @@
     <img src="<%= game.escape("image_url") %>" alt="image"/>
   </div>
 
-  <ul class="want-button-options-list">
+  <ul class="want-button-options-list inactive">
     <% UberMicro.currentUser.lists().forEach(function (list) { %>
       <li id="<%= list.escape("name") %>">
         <%= list.escape("name")%>

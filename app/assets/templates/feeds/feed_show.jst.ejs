@@ -1,6 +1,10 @@
 <figure class="game-instance">
 
-  <ul class="want-button-options-list">
+  <div class="game-image-container">
+    <img src="<%= game.escape("image_url") %>" alt="image" />
+  </div>
+
+  <ul class="want-button-options-list inactive">
     <% UberMicro.currentUser.lists().forEach(function (list) { %>
       <li id="<%= list.escape("name") %>">
         <%= list.escape("name")%>
@@ -15,7 +19,8 @@
     </span>
   </ul>
 
-  <button class="want-button-options"></button>
+  <button class="want-button-options"
+          <% if (!UberMicro.currentUser.signed_in()) { %> disabled <% } %> ></button>
 
   <button class="want-button"
           data-id="<%= game.id %>"
@@ -26,19 +31,20 @@
       wants-to-play
     <% } %>
   </button>
-  <div class="game-image-container">
-    <img src="<%= game.escape("image_url") %>" alt="image" />
-  </div>
-
 
   <figure class="feed-game-info">
+
+    <small class="jrating-avg"> Average Rating:
+      <div id="jRateAvg<%= game.id %>"></div>
+    </small>
+
     <% if (game.escape("because_title")) { %>
-      Because you liked <%=game.escape("because_title")%> we recommend
+      <h3>Because you liked <%=game.escape("because_title")%> we recommend</h3>
       <a href="#/games/<%= game.id %>">
         <h3 class="game-rec"><%= game.escape("title") %></h3>
       </a>
     <% } else { %>
-      Popular on UberMicro
+      <h3>Popular on UberMicro</h3>
       <a href="#/games/<%= game.id %>">
         <h3 class="game-rec"><%= game.escape("title") %></h3>
       </a>
@@ -59,6 +65,14 @@
         </a>
       </strong>
     </p>
+
+    <% if (this.model.myGame && this.model.myGame.get("status") !== "wants-to-play") { %>
+
+    <small class="jrating"> My Rating:
+      <div id="jRate<%= game.id %>"></div>
+    </small>
+
+    <% } %>
 
   </figure>
     <p class="game-description">
