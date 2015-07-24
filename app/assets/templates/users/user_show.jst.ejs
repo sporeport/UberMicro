@@ -6,17 +6,25 @@
     <img src="<%= user.escape("avatar_url") %>" alt="profile picture" />
   </figure>
 
-  <form class="avatar-upload-form">
-    <label for="input-user-avatar">Upload Avatar
-      <input type="file" name="user[avatar]" id="input-user-avatar">
-    </label>
-    <button>submit</button><br>
+  <form class="avatar-upload-form inactive">
+    <input type="file" name="user[avatar]" id="input-user-avatar">
+    <button>upload</button><br>
   </form>
 
   <% if (user.get("created_at")) { %>
     <figure class="profile-info">
-      <span>name          <%= user.escape("name")%></span>
-      <span>joined        <%= Date.parse(user.escape("created_at").slice(0, -5)).toString('MMMM d, yyyy') %></span>
+
+      <small class="profile-name">Name</small>
+      <strong class="profile-name-txt"> <%= user.escape("name")%></strong>
+      <input type="text" name="user[name]" class="profile-name-input inactive" value="<%= user.escape("name")%>">
+
+      <small class="profile-joined">Joined</small>
+      <strong> <%= Date.parse(user.escape("created_at").slice(0, -5)).toString('MMMM d, yyyy') %></strong>
+
+      <small class="profile-email">Email</small>
+      <strong class="profile-email-txt"> <%= user.escape("email") %></strong>
+      <input type="text" name="user[email]" class="profile-email-input inactive" value="<%= user.escape("email") %>">
+
     </figure>
   <% } %>
 </main>

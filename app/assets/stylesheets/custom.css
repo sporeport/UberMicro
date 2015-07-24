@@ -259,10 +259,11 @@ button {
 }
 
 .sign-up-container > strong {
-  font-size: 46px;
+  font-size: 50px;
   font-weight: 700;
   width: 600px;
   margin-left: 15px;
+  margin-top: 30px;
   float: left;
   text-align: center;
   letter-spacing: 3px;
@@ -295,6 +296,7 @@ button {
 
 .sign-up-container > form > small {
   margin: 0 auto;
+  font-size: 14px;
   width: 20px;
 }
 
@@ -729,23 +731,111 @@ span.list {
 
 /* user profile */
 .profile-page {
-  width: 1000px;
+  position: relative;
+  width: 550px;
   margin: 0 auto;
+}
+.profile-header {
+  float: right;
 }
 
 .profile-picture {
+  margin-top: 20px;
   width: 200px;
-  border: 2px solid black
+  border: 2px solid black;
+  border-radius: 5px;
+  float: left;
+}
+
+.avatar-upload-form {
+  position: absolute;
+  top: 235px;
+  left: 0;
+}
+
+.avatar-upload-form > button {
+  position: relative;
+  top: 3px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.avatar-upload-form > button:hover {
+  background-color: #0072bb;
+}
+
+.avatar-upload-form > button,
+.avatar-upload-form > input {
+  display: inline;
+}
+
+.profile-info {
+  float: right;
+  width: 320px;
+}
+
+.profile-info > small {
+  float: left;
+  clear: left;
+  padding: 5px 0px;
+}
+
+.profile-info > input {
+  float: right;
+  clear: right;
+  margin: 5px 0px;
+}
+
+.profile-info > small:not(.profile-joined):hover {
+  color: #0072bb;
+  cursor: pointer;
+}
+
+.profile-info > strong {
+  float: right;
+  clear: right;
+  padding: 5px 0px;
+  font-weight: 700;
+}
+
+.profile-picture:hover {
+  box-shadow: 0px 0px 40px #0072bb;
+  cursor: pointer;
 }
 
 #input-user-avatar {
   padding: 5px;
-  width: 200px;
-  margin: 10px 10px 10px 13px;
+  width: 220px;
   background: #fff;
   border-radius: 5px;
 }
 
+/* about */
+
+.about-ubermicro {
+  width: 600px;
+  background: #f4b742;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 180px;
+  padding: 20px;
+  border-radius: 10px;
+  letter-spacing: 2px;
+}
+
+.about-ubermicro > a {
+  text-decoration: underline;
+}
+
+.about-ubermicro > a:hover {
+  color: #0072bb;
+}
+
+.
 /* on/off */
 .active {
   display: block;

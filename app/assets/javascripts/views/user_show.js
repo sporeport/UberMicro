@@ -24,7 +24,53 @@ UberMicro.Views.UserShow = Backbone.View.extend({
 
   events: {
     "submit .avatar-upload-form": "submit",
+    "click .profile-picture": "toggleChooseFile",
+    "click .profile-name": "toggleNameInput",
+    "click .profile-email": "toggleEmailInput"
   },
+
+  toggleNameInput: function (event) {
+    var $nameIn = this.$(".profile-name-input");
+    var $nameTxt = this.$(".profile-name-txt");
+
+    if ($nameIn.hasClass("inactive")) {
+      $nameIn.removeClass("inactive");
+      $nameTxt.addClass("inactive");
+    } else {
+      $nameIn.addClass("inactive");
+      $nameTxt.removeClass("inactive");
+
+      var formData = $nameIn.serializeJSON()["user"]
+      this.model.save(formData)
+    }
+  },
+
+  toggleEmailInput: function (event) {
+    var $emailIn = this.$(".profile-email-input");
+    var $emailTxt = this.$(".profile-email-txt")
+
+    if ($emailIn.hasClass("inactive")) {
+      $emailIn.removeClass("inactive");
+      $emailTxt.addClass("inactive");
+    } else {
+      $emailIn.addClass("inactive");
+      $emailTxt.removeClass("inactive");
+
+      var formData = $emailIn.serializeJSON()["user"]
+      this.model.save(formData)
+    }
+  },
+
+  toggleChooseFile: function (event) {
+    var $fileBtn = this.$(".avatar-upload-form");
+
+    if ($fileBtn.hasClass("inactive")) {
+      $fileBtn.removeClass("inactive");
+    } else {
+      $fileBtn.addClass("inactive");
+    }
+  },
+
 
   submit: function(event){
     event.preventDefault();

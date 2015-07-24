@@ -40,12 +40,13 @@ class Api::GamesController < ApplicationController
 
   def gb_search
     @query = params[:query]
+
     @results = Game.search_in_gb(@query)
 
     if @results.blank?
       render json: []
     else
-      render :gb_game_show
+      render :gb_game_index
     end
   end
 
