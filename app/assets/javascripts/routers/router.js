@@ -15,11 +15,17 @@ UberMicro.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "home",
+    "about": "about",
     "users/show": "userShow",
     "games/:id": "gamesShow",
     "games/search/:query": "gamesSearch",
     "games/search/": "gamesSearch", //**** DO NOT LEAVE IN!!!
     "my_games": "myGamesIndex"
+  },
+
+  about: function () {
+    var aboutView = new UberMicro.Views.AboutView();
+    this._swapView(aboutView);
   },
 
   userShow: function () {
