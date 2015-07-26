@@ -714,6 +714,11 @@ button.disabled-want-button {
   overflow: hidden;
 }
 
+.my-game-instance > span:not(.list):hover {
+  color: #0072bb;
+}
+
+
 span.company {
   width: 150px;
 }

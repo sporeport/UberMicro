@@ -16,7 +16,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   events: {
     "click button.want-button": "toggleWTPGame",
     "click button.submit-comment-button": "submitComment",
-    "click button.want-button-options": "openOptions",
+    "click button.want-button-options": "toggleOptions",
     "click .want-button-options-list > li": "addToList",
     "click #add-list": "addList",
     "submit #list-form": "submitList"
@@ -39,9 +39,6 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     list.save({}, {
       success: function () {
         UberMicro.currentUser.lists().add(list);
-
-        this.$(".want-button-options-list").addClass("inactive")
-        this.$(".want-triangle").addClass("inactive")
       }
     });
   },
@@ -53,6 +50,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     if (myGame) {
       myGame.save({status: status}, {
         success: function () {
+          this.optionsListIsOpen = false;
           this.render();
         }.bind(this)
       })
@@ -67,6 +65,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
       myGame.save({}, {
         success: function () {
           this.model.myGame = myGame;
+          this.optionsListIsOpen = false;
           this.render();
         }.bind(this)
       });
@@ -96,7 +95,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
         }.bind(this)
       });
 
-      this.$(".want-button").removeClass("disabled-want-button")
+      this.$(".want-button").removeClass("disabled-want-button");
 
 
     } else {
@@ -105,7 +104,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
         status: "wants-to-play"
       });
 
-      this.$(".want-button").addClass("disabled-want-button")
+      this.$(".want-button").addClass("disabled-want-button");
 
       myGame.save({}, {
         success: function () {
@@ -135,7 +134,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     $form.find("textarea").val("")
   },
 
-  openOptions: function () {
+  toggleOptions: function () {
     var $button = this.$(".want-button-options-list")
     var $tri = this.$(".want-triangle")
 
@@ -146,6 +145,22 @@ UberMicro.Views.GameShow = Backbone.View.extend({
       $button.addClass("inactive");
       $tri.addClass("inactive");
     }
+  },
+
+  openOptions: function () {
+    var $button = this.$(".want-button-options-list")
+    var $tri = this.$(".want-triangle")
+
+    $button.removeClass("inactive");
+    $tri.removeClass("inactive");
+  },
+
+  closeOptions: function () {
+    var $button = this.$(".want-button-options-list")
+    var $tri = this.$(".want-triangle")
+
+    $button.addClass("inactive");
+    $tri.addClass("inactive");
   },
 
   addStarRatings: function () {
@@ -172,8 +187,8 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     		height: 12,
 
         onSet: function(rating) {
-          this.model.myGame.set({ "my_rating": rating })
-          this.model.myGame.save()
+          this.model.myGame.set({ "my_rating": rating });
+          this.model.myGame.save();
         }.bind(this)
       });
     }
@@ -190,6 +205,8 @@ UberMicro.Views.GameShow = Backbone.View.extend({
 
     if (this.optionsListIsOpen) {
       this.openOptions();
+    } else {
+      this.closeOptions();
     }
 
     if (this.model.myGame) {
