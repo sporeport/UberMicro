@@ -33,6 +33,23 @@ UberMicro.Views.UserHome = Backbone.CompositeView.extend({
 
   template: JST["homes/user_home"],
 
+  events: {
+    "click .about-close": "closeAbout",
+    "click .about-open": "openAbout"
+  },
+
+  closeAbout: function () {
+    this.$(".about-container").addClass("leave-left");
+    this.$(".about-close").addClass("inactive");
+    this.$(".about-open").addClass("active");
+  },
+
+  openAbout: function () {
+    this.$(".about-container").removeClass("leave-left");
+    this.$(".about-close").removeClass("inactive");
+    this.$(".about-open").removeClass("active");
+  },
+
   addSubViews: function () {
     this.userRecommended.shuffle().forEach(function (model) {
       var showView = new UberMicro.Views.FeedShow({
@@ -46,6 +63,12 @@ UberMicro.Views.UserHome = Backbone.CompositeView.extend({
 
   render: function () {
     this.$el.html(this.template());
+
+    if (UberMicro.currentUser.get("name") !== "guest" ||
+        !UberMicro.currentUser.signed_in()) {
+      this.$(".about-container").addClass("inactive");
+    }
+
     this.addSubViews();
     return this;
   }
