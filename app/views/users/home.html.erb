@@ -1,3 +1,25 @@
+<div class="flash-notices">
+  <% if flash[:errors] %>
+    <ul class="error-flash-notices">
+      <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <ul class="notice-flash-notices">
+      <% flash[:notice].each do |notice| %>
+        <li><%= notice %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <% if flash[:notice] || flash[:errors] %>
+    <figure class="flash-close"></figure>
+  <% end %>
+</div>
+
 <% if !signed_in? %>
 <span class="sign-up-banner">
   <div class="sign-up-container group">
@@ -25,4 +47,15 @@
   <img src="http://i.imgur.com/2D2aJVc.jpg" class="background-img" alt="" />
 </div>
 
+<span class="notification"></span>
+
 <div id="content"></div>
+
+<script>
+  $(document).on("ready", function () {
+    $(".flash-close").on("click", function (event) {
+      $(".flash-notices").addClass("leave-top");
+      $(".flash-close").addClass("inactive");
+    })
+  })
+</script>

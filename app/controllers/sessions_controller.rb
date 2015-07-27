@@ -1,9 +1,5 @@
 class SessionsController < ApplicationController
 
-  def new
-
-  end
-
   def omniauth
     @user = User.find_by_omniauth(auth_hash[:uid].to_s, auth_hash[:provider])
 
@@ -32,6 +28,7 @@ class SessionsController < ApplicationController
       sign_in(@user)
       redirect_to root_path
     else
+      flash[:errors] = ["wrong email/password combination"]
       redirect_to root_path
     end
   end
