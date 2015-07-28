@@ -21,6 +21,7 @@ UberMicro is a site designed to connect users to games. This site was originally
 
 #Functionality:
   Users can:
+  
     * Create accounts with secure password and session authentication
     * "want-to-play" games
     * Organize games in lists (eg. "played")
