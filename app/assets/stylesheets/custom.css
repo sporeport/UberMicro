@@ -249,7 +249,6 @@ button {
   background: #f00;
   opacity: .75;
   color: white;
-  padding-bottom: 5px;
 }
 
 .error-flash-notices > li {
@@ -291,6 +290,25 @@ button {
   cursor: pointer;
   border-top: 0px solid #0072bb;
   border-bottom: 8px solid #0072bb;
+}
+
+.backbone-flash-notices {
+  position: relative;
+  top: 0;
+  transition: top 2s;
+}
+
+
+.backbone-flash-notice {
+  color: #fff;
+  background: #0a0;
+  text-align: center;
+}
+
+.backbone-flash-error {
+  color: #fff;
+  background: #f00;
+  text-align: center;
 }
 
 
@@ -878,18 +896,20 @@ span.list {
   width: 200px;
   padding: 5px;
   position: fixed;
-  top: 200px;
-  left: 50px;
+  top: 75px;
+  left: 15px;
   height: 280px;
   transition: left 1.5s;
   z-index: 2;
+  color: #fff;
+  font-weight: 300;
 }
 
 .about-open {
   display: none;
 
   position: absolute;
-  right: -15px;
+  right: -17px;
   top: 45%;
 
   border-top: 10px solid transparent;
@@ -909,11 +929,12 @@ span.list {
   left: -5px;
   top: -5px;
   background: #000;
-  opacity: .5;
+  opacity: .9;
   width: 100%;
   height: 100%;
   padding: 5px;
   border-radius: 10px;
+  border: 2px solid #fff;
 }
 
 .about-ubermicro {
@@ -926,7 +947,7 @@ span.list {
 }
 
 .about-ubermicro > a:hover {
-  color: #fff;
+  color: #0072bb;
 }
 
 .about-close {

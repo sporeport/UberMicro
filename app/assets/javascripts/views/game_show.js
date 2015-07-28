@@ -70,19 +70,7 @@ UberMicro.Views.GameShow = Backbone.View.extend({
         }.bind(this)
       });
     }
-
-    // this.setOptionStatus()
   },
-
-  // broken function
-  //
-  // setOptionStatus: function () {
-  //   if (this.model.myGame) {
-  //     //doesn't work for two or more word status
-  //     var status = this.model.myGame.get("status");
-  //     this.$("#" + status).addClass("disabled-option");
-  //   }
-  // },
 
   toggleWTPGame: function (event) {
     var myGame = this.model.myGame
@@ -212,8 +200,6 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     if (this.model.myGame) {
       this.$(".want-button").addClass("disabled-want-button")
     }
-
-    // this.setOptionStatus();
 
     return this;
   }

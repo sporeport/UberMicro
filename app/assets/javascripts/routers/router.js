@@ -71,6 +71,8 @@ UberMicro.Routers.Router = Backbone.Router.extend({
   },
 
   _swapView: function (view) {
+    $(".backbone-flash-notices-container").empty();
+    
     this._currentView && this._currentView.remove();
     this._currentView = view;
     this.$rootEl.html(view.render().$el);

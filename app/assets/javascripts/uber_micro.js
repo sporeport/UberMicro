@@ -7,7 +7,9 @@ window.UberMicro = {
     this.currentUser = new UberMicro.Models.CurrentUser();
     this.currentUser.fetch();
 
-    var $rootEl = $("#content")
+    this.about_open = true;
+
+    var $rootEl = $("#content");
     var router = new UberMicro.Routers.Router({ $rootEl: $rootEl });
     Backbone.history.start();
   }

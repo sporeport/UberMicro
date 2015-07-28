@@ -42,12 +42,16 @@ UberMicro.Views.UserHome = Backbone.CompositeView.extend({
     this.$(".about-container").addClass("leave-left");
     this.$(".about-close").addClass("inactive");
     this.$(".about-open").addClass("active");
+
+    UberMicro.about_open = false;
   },
 
   openAbout: function () {
     this.$(".about-container").removeClass("leave-left");
     this.$(".about-close").removeClass("inactive");
     this.$(".about-open").removeClass("active");
+
+    UberMicro.about_open = true;
   },
 
   addSubViews: function () {
@@ -67,6 +71,10 @@ UberMicro.Views.UserHome = Backbone.CompositeView.extend({
     if (UberMicro.currentUser.get("name") !== "guest" ||
         !UberMicro.currentUser.signed_in()) {
       this.$(".about-container").addClass("inactive");
+    }
+
+    if (!UberMicro.about_open) {
+      this.closeAbout();
     }
 
     this.addSubViews();

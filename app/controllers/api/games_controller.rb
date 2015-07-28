@@ -68,24 +68,43 @@ class Api::GamesController < ApplicationController
     game_data = Game.get_gb_game(@gbid)
 
     @game = Game.new
-    @game.description = game_data["deck"]
-    @game.company = game_data["developers"][0]["name"]
-    @game.title = game_data["name"]
-    @game.genre = game_data["genres"][0]["name"]
 
-    if game_data["image"] && game_data["image"]["thumb_url"]
+    if valid_gb_game_data(game_data)
+
+      @game.description = game_data["deck"]
+      @game.company = game_data["developers"][0]["name"]
+      @game.title = game_data["name"]
+      @game.genre = game_data["genres"][0]["name"]
       @game.image = game_data["image"]["thumb_url"]
-    end
 
-    if @game.save
-      render json: @game
+
+      if @game.save
+        render json: @game
+      else
+        render json: @game.errors.full_messages
+      end
     else
-      render json: @game.errors.full_messages
+      render status: :unprocessable_entity
     end
   end
 
-  def update
+  private
 
+  def valid_gb_game_data(game_data)
+    if game_data["deck"] &&
+         game_data["developers"] &&
+         game_data["developers"][0] &&
+         game_data["developers"][0]["name"] &&
+         game_data["name"] &&
+         game_data["genres"] &&
+         game_data["genres"][0] &&
+         game_data["genres"][0]["name"] &&
+         game_data["image"] &&
+         game_data["image"]["thumb_url"]
+      true
+    else
+      false
+    end
   end
 
 end

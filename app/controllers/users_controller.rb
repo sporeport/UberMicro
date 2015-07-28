@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in(@user)
       @new_user = true
-      flash.now[:notice] = ["Welcome to UberMicro, this is your home page."]
+      flash.now[:notice] = ["Welcome to UberMicro, #{@user.name}."]
       render :home
     else
       flash[:errors] = @user.errors.full_messages
