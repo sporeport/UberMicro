@@ -5,21 +5,21 @@
 [live]: http://www.ubermicro.link/
 
 
-#Welcome to UberMicro
+##Welcome to UberMicro
 
 UberMicro is a site designed to connect users to games. This site was originally inspired by the goodreads site which has similar functionality for books. UberMicro is designed to allow users swift transitions to all elements of the site with most of the requests being sent through ajax.
 
-#Languages:
-* Ruby
-* JavaScript
-* css
-* html
+###Languages:
+- Ruby
+- JavaScript
+- css
+- html
 
-#Frameworks:
-* Ruby on Rails
-* Backbone.js
+###Frameworks:
+- Ruby on Rails
+- Backbone.js
 
-#Functionality:
+###Functionality:
   Users can:
 
     - Create accounts with secure password and session authentication
@@ -30,11 +30,11 @@ UberMicro is a site designed to connect users to games. This site was originally
     - Rate Games
     - Add Games to UberMicro through the search function
 
-#Challenges
-  * Creating an api able to handle a variety of game requests
-  * Using other sites api's to expand UberMicro's scope
+###Challenges
+  - Creating an api able to handle a variety of game requests
+  - Using other sites api's to expand UberMicro's scope
 
-#Future additions
+###Future additions
   Features not yet implemented would be:
 
     - Friend relations between users
