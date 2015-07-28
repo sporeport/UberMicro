@@ -19,7 +19,15 @@ UberMicro.Views.GameShow = Backbone.View.extend({
     "click button.want-button-options": "toggleOptions",
     "click .want-button-options-list > li": "addToList",
     "click #add-list": "addList",
-    "submit #list-form": "submitList"
+    "submit #list-form": "submitList",
+  },
+
+  showSignIn: function () {
+    var $signIn = this.$(".please-sign-in")
+    $signIn.addClass("fade-in");
+    window.setTimeout(function () {
+      $signIn.removeClass("fade-in");
+    }, 1000)
   },
 
   addList: function (event) {
@@ -73,6 +81,11 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   toggleWTPGame: function (event) {
+    if (this.$(".want-button").data("status") === "disabled") {
+      this.showSignIn();
+      return null;
+    }
+
     var myGame = this.model.myGame
 
     if (myGame) {
@@ -123,6 +136,11 @@ UberMicro.Views.GameShow = Backbone.View.extend({
   },
 
   toggleOptions: function () {
+    if (this.$(".want-button").data("status") === "disabled") {
+      this.showSignIn();
+      return null;
+    }
+
     var $button = this.$(".want-button-options-list")
     var $tri = this.$(".want-triangle")
 

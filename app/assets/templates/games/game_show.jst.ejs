@@ -4,6 +4,10 @@
     <img src="<%= game.escape("image_url") %>" alt="image"/>
   </div>
 
+  <figure class="please-sign-in">
+    Please sign in set game relationships.
+  </figure>
+
   <ul class="want-button-options-list inactive">
     <% UberMicro.currentUser.lists().forEach(function (list) { %>
       <li id="<%= list.escape("name") %>">
@@ -20,12 +24,16 @@
   </ul>
 
   <button class="want-button-options"
-          <% if (!UberMicro.currentUser.signed_in()) { %> disabled <% } %> >
+          <% if (!UberMicro.currentUser.signed_in()) { %>
+            data-status="disabled"
+            <% } %> >
   </button>
 
   <button class="want-button"
           data-id="<%= game.id %>"
-          <% if (!UberMicro.currentUser.signed_in()) { %> disabled <% } %> >
+          <% if (!UberMicro.currentUser.signed_in()) { %>
+            data-status="disabled"
+          <% } %> >
     <% if (game.myGame) { %>
       <%= game.myGame.escape("status") %>
     <% } else { %>

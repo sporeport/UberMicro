@@ -4,7 +4,8 @@ UberMicro.Views.SearchBox = Backbone.View.extend({
 
   events: {
     "click .search-box-button": "search",
-    "keyup": "tryToSearch"
+    "keyup": "tryToSearch",
+    "click .all-games-button": "searchAllGames"
   },
 
   render: function () {
@@ -13,14 +14,18 @@ UberMicro.Views.SearchBox = Backbone.View.extend({
   },
 
   search: function (event) {
-    var query = this.$(".search-field").val()
-    Backbone.history.navigate("#/games/search/" + query, { trigger: true })
+    var query = this.$(".search-field").val();
+    Backbone.history.navigate("#/games/search/" + query, { trigger: true });
+  },
+
+  searchAllGames: function () {
+    Backbone.history.navigate("#/games/search/", { trigger: true });
   },
 
   tryToSearch: function (event) {
     if (event.keyCode === 13) {
-      var query = this.$(".search-field").val()
-      Backbone.history.navigate("#/games/search/" + query, { trigger: true })
+      var query = this.$(".search-field").val();
+      Backbone.history.navigate("#/games/search/" + query, { trigger: true });
     }
   }
 })

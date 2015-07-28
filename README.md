@@ -1,12 +1,40 @@
 # UberMicro
 
-[Heroku Link][heroku]
+[Live Link][live]
 
-[heroku]: http://www.ubermicro.link/
+[live]: http://www.ubermicro.link/
 
 
-Welcome to UberMicro.
+#Welcome to UberMicro
 
-I created UberMicro for my App Academy capstone project. The inspiration for the site came from good reads, a site which recommends books to users. My project idea was a spin of of this basic functionality, utilizing video games instead of books.
+UberMicro is a site designed to connect users to games. This site was originally inspired by the goodreads site which has similar functionality for books. UberMicro is designed to allow users swift transitions to all elements of the site with most of the requests being sent through ajax.
 
-On UberMicro, a user is also able to organize their games through custom lists, starting with default lists, "want-to-play" and "played". This allows UberMicro to build a set of recommendations for that user, based on their relationships to games. Users are able to see how other users enjoyed a game by looking at the comments and reviews left on a game's main page, as well as leave their own comments. Finally, when a user finishes playing a game and they set their game status to 'played', that user is able to rate that game which contributes to the game's over-all average rating.
+#Languages:
+* Ruby
+* JavaScript
+* css
+* html
+
+#Frameworks:
+* Ruby on Rails
+* Backbone.js
+
+#Functionality:
+  Users can:
+    * Create accounts with secure password and session authentication
+    * "want-to-play" games
+    * Organize games in lists (eg. "played")
+    * Receive game recommendations based on their games
+    * Comment on games
+    * Rate Games
+    * Add Games to UberMicro through the search function
+
+#Challenges
+  * Creating an api able to handle a variety of game requests
+  * Using other sites api's to expand UberMicro's scope
+
+#Future additions
+  Features not yet implemented would be:
+    * Friend relations between users
+    * User to User recommendations
+    * A more complex recommending algorithm

@@ -129,7 +129,7 @@ button {
 
 #main-nav {
   margin: auto;
-  width: 1000px;
+  width: 1050px;
   color: white;
 }
 
@@ -148,6 +148,7 @@ button {
 }
 
 .search-box-button {
+  float: left;
   background: white;
   width: 28px;
   height: 28px;
@@ -156,8 +157,17 @@ button {
   border-bottom-right-radius: 5px;
 }
 
-.search-box-button:hover {
+.search-box-button:hover,
+.all-games-button:hover {
   background: #0072bb;
+}
+
+.all-games-button {
+  float: left;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 
 .logo {
@@ -223,7 +233,7 @@ button {
 .sign-out-button:hover,
 .sign-in-form > form > button:hover,
 .guest-sign-in-button:hover,
-.sign-up-container > form > button:hover,
+.sign-up-buttons-container > button:hover,
 .submit-comment-button:hover {
   background: #0072bb;
 }
@@ -353,16 +363,22 @@ button {
   border-radius: 5px;
 }
 
-.sign-up-container > form > button {
-  margin: 5px auto;
+.sign-up-buttons-container {
+  margin-left: 60px;
+  width: 150px;
+}
+
+.sign-up-buttons-container > button {
   padding: 5px;
   background: #fff;
   border-radius: 5px;
+  display: inline;
 }
 
 
 .sign-up-container > form > small {
   margin: 0 auto;
+  margin-top: 10px;
   font-size: 14px;
   width: 20px;
 }
@@ -393,6 +409,9 @@ button {
 
 
 /* games index */
+.want-button-container {
+  float: right;
+}
 
 .want-button-options-list {
   position: absolute;
@@ -469,6 +488,19 @@ li.disabled-option:hover {
   border-left: 0 solid #fff;
 }
 
+.please-sign-in {
+  position: absolute;
+  border-radius: 10px;
+  background: #ff8686;
+
+  right: -140px;
+  top: 0;
+  width: 100px;
+  padding: 10px;
+
+  opacity: 0;
+  transition: opacity 1s;
+}
 
 .want-button-options {
   position: relative;
@@ -898,7 +930,7 @@ span.list {
   position: fixed;
   top: 75px;
   left: 15px;
-  height: 280px;
+  height: 250px;
   transition: left 1.5s;
   z-index: 2;
   color: #fff;
@@ -985,4 +1017,12 @@ span.list {
 
 .leave-top {
   top: -110px;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
 }
