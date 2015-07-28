@@ -7,7 +7,7 @@
 
 ##Welcome to UberMicro
 
-UberMicro is a site designed to connect users to games. This site was originally inspired by the goodreads site which has similar functionality for books. UberMicro is designed to allow users swift transitions to all elements of the site with most of the requests being sent through ajax.
+UberMicro is a site designed to connect users to games. This site was originally inspired by the goodreads site which has similar functionality for books. UberMicro is designed to allow users swift transitions to all elements of the site for the best user experience.
 
 ###Languages:
   - Ruby
