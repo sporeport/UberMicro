@@ -129,7 +129,7 @@ button {
 
 #main-nav {
   margin: auto;
-  width: 1050px;
+  width: 1055px;
   color: white;
 }
 
@@ -518,6 +518,7 @@ li.disabled-option:hover {
 }
 
 .want-button {
+  height: 21px;
   position: relative;
   z-index: 1;
   background: linear-gradient(to bottom, #c9de96 0%,#8ab66b 44%,#398235 100%);
