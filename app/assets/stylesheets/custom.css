@@ -1000,6 +1000,22 @@ span.list {
   background: #f00;
 }
 
+/* broken */
+
+.currently-broken {
+  opacity: 0;
+  position: absolute;
+  width: 300px;
+  height: 110px;
+  padding: 20px;
+  color: #fff;
+  left: 50%;
+  top: 300px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background-color: #f00;
+  transition: opacity 1s;
+}
 
 /* on/off */
 .active {

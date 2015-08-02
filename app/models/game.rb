@@ -71,8 +71,7 @@ class Game < ActiveRecord::Base
     begin
       results = RestClient.get "http://www.giantbomb.com/api/search", params: params_hash
       return JSON.parse(results)["results"]
-    rescue => e
-      puts e.response
+    rescue
       return []
     end
 

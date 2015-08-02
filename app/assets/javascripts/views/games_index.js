@@ -16,13 +16,21 @@ UberMicro.Views.GamesIndex = Backbone.CompositeView.extend({
   },
 
   searchGb: function (event) {
-    $(event.currentTarget).text("loading games...")
+    var $brokenTxt = this.$(".currently-broken");
+    $brokenTxt.addClass("fade-in");
 
-    this.gbGames.fetch({
-      data: {
-        query: this.collection.query
-      }
-    })
+    setTimeout(function () {
+      $brokenTxt.removeClass("fade-in");
+    }, 6000)
+    // Currently Broken :(
+    //
+    // $(event.currentTarget).text("loading games...")
+
+    // this.gbGames.fetch({
+    //   data: {
+    //     query: this.collection.query
+    //   }
+    // })
   },
 
   addGbSubViews: function () {
