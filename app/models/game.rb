@@ -68,10 +68,14 @@ class Game < ActiveRecord::Base
       query: query
     }
 
-    results = RestClient.get "http://www.giantbomb.com/api/search", params: params_hash
-    puts results
+    begin
+      results = RestClient.get "http://www.giantbomb.com/api/search", params: params_hash
+      return JSON.parse(results)["results"]
+    rescue => e
+      puts e.response
+      return []
+    end
 
-    JSON.parse(results)["results"]
   end
 
   def self.with_my_games(user)
