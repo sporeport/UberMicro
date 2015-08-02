@@ -69,6 +69,8 @@ class Game < ActiveRecord::Base
     }
 
     results = RestClient.get "http://www.giantbomb.com/api/search", params: params_hash
+    puts results
+
     JSON.parse(results)["results"]
   end
 
